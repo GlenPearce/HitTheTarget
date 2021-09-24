@@ -8,7 +8,7 @@ public class Playermov : MonoBehaviour
     //Public setting
     [Header("Player cam and capsule")]
     public GameObject player;
-    public Transform camera;
+    public Camera camera;
     [Header("Player speed settings")]
     public float speed;
     public float maxSpeed;
@@ -16,22 +16,25 @@ public class Playermov : MonoBehaviour
     public float jumpForce;
     public float doubleJumpHeight;
     public float doubleJumpFpower;
+    public float airMoveMultiply;
     [Header("Player slide settings")]
     public float slideFricton;
     [Header("Player settings")]
     public float mouseSens;
+    [Header("Camera settings")]
+    public float camLerpSpeed;
 
 
     Rigidbody rb;
     Collider playerColl;
 
-    Vector3 movementVec, movementDash;
+    Vector3 movementVec, movementDash, rbVelocity;
     Vector3 yChange = new Vector3(0, -0.5f, 0);
-
+    Vector2 camRotation;
     bool  grounded, sliding, dashing;
     bool doubleJump = false;
 
-    float horizontal, vertical, mouseVertical, mouseHorizontal, dashTimer;
+    float horizontal, vertical, mouseVertical, mouseHorizontal, dashTimer, inAirSpeed, interpolation;
 
     void Start()
     {
@@ -43,10 +46,24 @@ public class Playermov : MonoBehaviour
     void Update()
     {
         ///camera movement at top of update----------------------------------------------------------------------------------------
+        SmoothCamera();
         cameraMov();
+        ///Grounded Check and physics changes----------------------------------------------------------------------------------------
+        grounded = (Physics.Raycast(player.transform.position, Vector3.down, 1.3f, LayerMask.NameToLayer("ground")));
+        if (grounded&& !sliding)
+        {
+            inAirSpeed = 1;
+            playerColl.material.dynamicFriction = 1;
+            playerColl.material.staticFriction = 1;
+        }
+        else
+        {
+            inAirSpeed = airMoveMultiply;
+            playerColl.material.dynamicFriction = slideFricton;
+            playerColl.material.staticFriction = slideFricton;
+        }
 
-        ///Only Allow movement on the floor----------------------------------------------------------------------------------------
-        grounded = (Physics.Raycast(player.transform.position, Vector3.down, 1.2f, LayerMask.NameToLayer("ground")));
+        ///take inputs for ground movement---------------------------------------------------------------------------------------------
         if (!sliding&&!dashing)
         {
             inputs();
@@ -124,24 +141,26 @@ public class Playermov : MonoBehaviour
     void FixedUpdate()
     {
         grounded = (Physics.Raycast(player.transform.position, Vector3.down, 1.1f, LayerMask.NameToLayer("ground")));
-        if (grounded && !sliding && !dashing)
+        if (grounded&&!sliding && !dashing)
         {
             movement();
         }
-      
+
     }
     //-----------------------------------------------------------------------------------
 
     void cameraMov()
     {
-        //camera
-        mouseHorizontal = Input.GetAxis("Mouse X") * mouseSens;
-        transform.Rotate(0, mouseHorizontal, 0);
-
-        mouseVertical -= Input.GetAxis("Mouse Y") * mouseSens;
+        //grab mouse inputs and clamp the y
+        mouseHorizontal += (Input.GetAxis("Mouse X")*Time.fixedDeltaTime) * mouseSens;
+        mouseVertical -= (Input.GetAxis("Mouse Y")* Time.fixedDeltaTime) * mouseSens;
         mouseVertical = Mathf.Clamp(mouseVertical, -80, 80);
-
-        Camera.main.transform.localRotation = Quaternion.Euler(mouseVertical, 0, 0);
+        //make into a vector2
+        camRotation.y = mouseHorizontal;
+        camRotation.x = mouseVertical;
+        //apply the rotation
+        camera.transform.eulerAngles = (Vector2)camRotation;
+        transform.eulerAngles = new Vector2(0, mouseHorizontal);
     }
     //-------------------------------------------------------------------------------------
     void inputs()
@@ -155,14 +174,17 @@ public class Playermov : MonoBehaviour
 
     void movement()
     {
-        rb.AddRelativeForce(movementVec * speed);
-        //speed limit ignores limits on Y axis
-        float tempY = rb.velocity.y;
-        if (rb.velocity.magnitude > maxSpeed)
+         rb.AddRelativeForce(movementVec * speed*inAirSpeed);
+
+         //speed limit ignores limits on Y axis
+         float tempY = rb.velocity.y;
+         
+        if (rb.velocity.magnitude > maxSpeed&&grounded)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rbVelocity = rb.velocity.normalized * maxSpeed;
+            rb.velocity = new Vector3(rbVelocity.x, tempY, rbVelocity.z);
         }
-        rb.velocity = new Vector3(rb.velocity.x, tempY, rb.velocity.z);
+         
     }
 
     //---------------------------------------------------------------------------
@@ -174,8 +196,18 @@ public class Playermov : MonoBehaviour
     void DoubleJump()
     {
         rb.AddForce(0, doubleJumpHeight, 0, ForceMode.Impulse);
-        rb.AddForce(camera.forward * doubleJumpFpower, ForceMode.Impulse);
+        rb.AddForce(camera.transform.forward * doubleJumpFpower, ForceMode.Impulse);
     }
     //-----------------------------------------------------------------------
+    void SmoothCamera()
+    {
+        interpolation = camLerpSpeed * Time.deltaTime;
+
+        Vector3 position = this.transform.position;
+        position.y = Mathf.Lerp(camera.transform.position.y, this.transform.position.y+0.5f, interpolation);
+        position.x = Mathf.Lerp(camera.transform.position.x, this.transform.position.x, interpolation);
+
+        camera.transform.position = position;
+    }
 }
 
