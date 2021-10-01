@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
+/// <summary>
+/// THIS NEEDS CHANGING ONCE AN INPUT SYSTEM IS INPLEMENTED TO THE PROJECT
+/// Script is however setup so changing to the input system should be fairly pain free
+/// bits to change with input are marked with ***********************************************
+/// </summary>
+
+
 public class Playermov : MonoBehaviour
 {
     //Public setting
@@ -33,7 +40,6 @@ public class Playermov : MonoBehaviour
     /// </summary>
     Rigidbody rb;
     Collider playerColl;
-
     Vector3 movementVec, movementDash, rbVelocity;
     Vector3 yChange = new Vector3(0, -0.5f, 0);
     Vector2 camRotation;
@@ -55,102 +61,82 @@ public class Playermov : MonoBehaviour
     /// </summary>
     void Update()
     {
-        ///camera movement at top of update----------------------------------------------------------------------------------------
+        ///camera movement at top of update
         SmoothCamera();
         cameraMov();
 
-        ///Grounded Check and physics changes----------------------------------------------------------------------------------------
-
+        ///Grounded Check and physics changes
         grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
 
-        ///stats on ground and ground resets
+        ///Check for on ground
         if (grounded&&!sliding)
         {
-            inAirSpeed = 1;
-            playerColl.material.dynamicFriction = 1;
-            playerColl.material.staticFriction = 1;
-            hoverAmount = 0;
-            maxSpeed = tempMaxSpeed;
+            GroundPhysics();
+            ///take inputs for ground movement if not sliding
+            if (!dashing)
+            {
+                inputs();
+            }
         }
-        /// air movement stats
+        ///check for in Air
         else
         {
-            inAirSpeed = airMoveMultiply;
-            playerColl.material.dynamicFriction = 0;
-            playerColl.material.staticFriction = 0;
-            maxSpeed = airMaxSpeed;
+            AirPhysics();
         }
 
-        ///take inputs for ground movement---------------------------------------------------------------------------------------------
-        if (!sliding&&!dashing)
-        {
-            inputs();
-        }
-
-        ///dash--------------------------------------------------------------------------------------------------------------------
+        ///dash
+        //dash timer
         dashTimer += Time.deltaTime;
-
+        ///**********************************************************************************************************************
         if (Input.GetKeyDown(KeyCode.LeftShift)&& dashTimer >= dashCooldown)
         {
-            if (grounded)
-            {
-                dashing = true;
-                movementDash = new Vector3(horizontal, 0.1f, vertical);
-                rb.AddRelativeForce(movementDash * dashSpeed*2, ForceMode.Impulse);
-                dashTimer = 0;
-            }
-            else
-            {
-                dashing = true;
-                movementDash = new Vector3(horizontal, 0.1f, vertical);
-                rb.AddRelativeForce(movementDash * dashSpeed, ForceMode.Impulse);
-                dashTimer = 0;
-            }
+            Dash();
         }
+        //dash duration
         if (dashTimer >= 0.5f)
         {
             dashing = false;
         }
 
-        ///Jump--------------------------------------------------------------------------------------------------------------------
+        ///Jump
+        ///**********************************************************************************************************************
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (grounded == true)
             {
                 jump();
+                //allow double jump
                 doubleJump = true;
             }
             else if (grounded == false && doubleJump == true)
             {
                 DoubleJump();
+                //has doublejumped
                 doubleJump = false;
             }
         }
 
+        ///Hover 
+        ///**********************************************************************************************************************
         if (Input.GetKey(KeyCode.Space) && hoverAmount<maxHover)
         {
-            rb.AddForce(0, hoverPower, 0);
-            Debug.Log("charging" + hoverAmount);
-            hoverAmount += Time.deltaTime;
-        }
-        //Slide-------------------------------------------------------------------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            sliding = true;
-            rb.AddForce(0,-1, 0, ForceMode.Impulse);
-            player.transform.localScale += yChange;
-            playerColl.material.dynamicFriction = slideFricton;
-            playerColl.material.staticFriction = slideFricton;
-        }
-        if ((Input.GetKeyUp(KeyCode.LeftControl)))
-        {
-            sliding = false;
-            player.transform.localScale -= yChange;
-            playerColl.material.dynamicFriction = 1;
-            playerColl.material.staticFriction = 1;
+            hover();
         }
 
-        // enable and disable mouse-----------------------------------------------------------------------------------------------
+        ///Slide
+        ///**********************************************************************************************************************
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            SlideDown();
+        }
+        ///**********************************************************************************************************************
+        if ((Input.GetKeyUp(KeyCode.LeftControl)))
+        {
+            SlideUp();
+        }
+
+        /// enable and disable mouse
+        ///**********************************************************************************************************************
         if (Input.GetKey(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -161,7 +147,6 @@ public class Playermov : MonoBehaviour
         }
     }
 
-    //-----------------------------------------------------------------------------------------------------------------------------
     void FixedUpdate()
     {
         grounded = (Physics.Raycast(player.transform.position, Vector3.down, 1.1f, LayerMask.NameToLayer("ground")));
@@ -171,7 +156,9 @@ public class Playermov : MonoBehaviour
         }
 
     }
-    //-----------------------------------------------------------------------------------------------------------------------------
+
+
+
     /// <summary>
     /// rotates the camera based on mouse movement, multiplying the input by fixed delta time because its supposed to reduce the stuttering but not really noticed any effect
     /// </summary>
@@ -249,6 +236,79 @@ public class Playermov : MonoBehaviour
         position.x = Mathf.Lerp(camera.transform.position.x, this.transform.position.x, interpolation);
 
         camera.transform.position = position;
+    }
+    /// <summary>
+    /// stats on ground and ground resets
+    /// </summary>
+    void GroundPhysics()
+    {
+        inAirSpeed = 1;
+        playerColl.material.dynamicFriction = 1;
+        playerColl.material.staticFriction = 1;
+        hoverAmount = 0;
+        maxSpeed = tempMaxSpeed;
+    }
+    /// <summary>
+    /// air movement stats
+    /// </summary>
+    void AirPhysics()
+    {
+        inAirSpeed = airMoveMultiply;
+        playerColl.material.dynamicFriction = 0;
+        playerColl.material.staticFriction = 0;
+        maxSpeed = airMaxSpeed;
+    }
+    /// <summary>
+    /// Dash goes towards player keyboard inputs 
+    /// </summary>
+    void Dash()
+    {
+        if (grounded)
+        {
+            dashing = true;
+            movementDash = new Vector3(horizontal, 0.1f, vertical);
+            rb.AddRelativeForce(movementDash * dashSpeed * 2, ForceMode.Impulse);
+            dashTimer = 0;
+        }
+        else
+        {
+            dashing = true;
+            movementDash = new Vector3(horizontal, 0.1f, vertical);
+            rb.AddRelativeForce(movementDash * dashSpeed, ForceMode.Impulse);
+            dashTimer = 0;
+        }
+    }
+    /// <summary>
+    /// hover adds force and adds to the hoveramount based on time
+    /// </summary>
+    void hover()
+    {
+        rb.AddForce(0, hoverPower, 0);
+        Debug.Log("charging" + hoverAmount);
+        hoverAmount += Time.deltaTime;
+    }
+    /// <summary>
+    /// use for activating the slide
+    /// </summary>
+    void SlideDown()
+    {
+        sliding = true;
+        rb.AddForce(0, -1, 0, ForceMode.Impulse);
+        player.transform.localScale += yChange;
+        //change the player material to the sliding values
+        playerColl.material.dynamicFriction = slideFricton;
+        playerColl.material.staticFriction = slideFricton;
+    }
+    /// <summary>
+    /// use for ending the slide
+    /// </summary>
+    void SlideUp()
+    {
+        sliding = false;
+        player.transform.localScale -= yChange;
+        //changes the values back to the original of 1, probably should use a value thats stored on start incase of changes
+        playerColl.material.dynamicFriction = 1;
+        playerColl.material.staticFriction = 1;
     }
 }
 
