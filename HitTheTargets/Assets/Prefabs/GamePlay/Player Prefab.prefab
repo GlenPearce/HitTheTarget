@@ -28,11 +28,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8727778583352401610}
-  - {fileID: 1808514846673466924}
+  - {fileID: 8326113870062031232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1808514846673466927
+--- !u!1 &7560259829117702888
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1808514846673466924}
-  - component: {fileID: 1808514846673467091}
-  - component: {fileID: 1808514846673467090}
-  - component: {fileID: 1808514846673466925}
+  - component: {fileID: 8326113870062031232}
+  - component: {fileID: 3736308402493893683}
+  - component: {fileID: 3209536195256555562}
+  - component: {fileID: 6061695859294369457}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -51,27 +51,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1808514846673466924
+--- !u!4 &8326113870062031232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808514846673466927}
+  m_GameObject: {fileID: 7560259829117702888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1808514845973648355}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1808514846673467091
+--- !u!20 &3736308402493893683
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808514846673466927}
+  m_GameObject: {fileID: 7560259829117702888}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -79,7 +79,7 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
-  m_SensorSize: {x: 70.41, y: 52.63}
+  m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
   m_NormalizedViewPortRect:
@@ -90,7 +90,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 105
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -108,21 +108,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1808514846673467090
+--- !u!81 &3209536195256555562
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808514846673466927}
+  m_GameObject: {fileID: 7560259829117702888}
   m_Enabled: 1
---- !u!114 &1808514846673466925
+--- !u!114 &6061695859294369457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808514846673466927}
+  m_GameObject: {fileID: 7560259829117702888}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
@@ -182,7 +182,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 3
+  antialiasing: 0
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -193,11 +193,11 @@ MonoBehaviour:
   taaMotionVectorRejection: 0
   taaAntiHistoryRinging: 0
   physicalParameters:
-    m_Iso: 103
-    m_ShutterSpeed: 0
+    m_Iso: 200
+    m_ShutterSpeed: 0.005
     m_Aperture: 16
     m_BladeCount: 5
-    m_Curvature: {x: 2, y: 9.903197}
+    m_Curvature: {x: 2, y: 11}
     m_BarrelClipping: 0.25
     m_Anamorphism: 0
   flipYMode: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727778583352401604}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -341,17 +341,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8727778583352401604}
-  camera: {fileID: 1808514846673467091}
+  playerCam: {fileID: 3736308402493893683}
   speed: 150
   maxSpeed: 1
   dashSpeed: 4
+  dashCooldown: 0
   jumpForce: 3
   doubleJumpHeight: 3
   doubleJumpFpower: 0
   airMoveMultiply: 0.7
-  minJump: 1
-  jumpChargeMulti: 3
-  maxJumpCharge: 2
+  maxHover: 0
+  hoverPower: 0
+  airMaxSpeed: 0
   slideFricton: 0.2
   mouseSens: 50
   camLerpSpeed: 20
