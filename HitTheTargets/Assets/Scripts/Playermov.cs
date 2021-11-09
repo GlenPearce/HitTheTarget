@@ -37,10 +37,10 @@ public class Playermov : MonoBehaviour
     Collider playerColl;
     Vector3 movementVec, movementDash, rbVelocity;
     Vector3 yChange = new Vector3(0, -0.5f, 0);
-    Vector2 camRotation, movementInput, pointer;
+    Vector2 movementInput;
     bool grounded, sliding, dashing, hovering;
     bool doubleJump = false;
-    float horizontal, vertical, mouseVertical, mouseHorizontal, dashTimer, inAirSpeed, interpolation;
+    float horizontal, vertical, mouseVertical, dashTimer, inAirSpeed, interpolation;
     float hoverAmount, tempMaxSpeed, lookX, lookY;
 
     PlayerInput playerInput;
@@ -53,7 +53,6 @@ public class Playermov : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Started");
         //init the variables here
         rb = GetComponent<Rigidbody>();
         playerColl = GetComponent<Collider>();
@@ -62,15 +61,7 @@ public class Playermov : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("x" + lookX);
-        Debug.Log("y" + lookY);
         SmoothCamera();
-        /*
-        lookY = Mathf.Clamp(lookY, -90, 90);
-        playerCam.transform.localEulerAngles = new Vector3(0, lookX, 0);
-        player.transform.localEulerAngles = new Vector3(0, lookX, 0);
-        playerCam.transform.localEulerAngles = new Vector3(lookY, 0, 0);
-        */
 
         //camera
         player.transform.localEulerAngles = new Vector3(0, lookX, 0);
@@ -143,7 +134,6 @@ public class Playermov : MonoBehaviour
         if (hoverAmount < maxHover && hovering)
         {
             rb.AddForce(0, hoverPower, 0);
-            Debug.Log("charging" + hoverAmount);
             hoverAmount += Time.deltaTime;
         }
 
