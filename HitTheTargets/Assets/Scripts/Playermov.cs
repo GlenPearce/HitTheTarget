@@ -29,6 +29,7 @@ public class Playermov : MonoBehaviour
     public float mouseSens;
     [Header("Camera settings")]
     public float camLerpSpeed;
+    public float recoil;
 
     /// <summary>
     /// settings that are used for the various mechanics
@@ -42,6 +43,7 @@ public class Playermov : MonoBehaviour
     bool doubleJump = false;
     float horizontal, vertical, mouseVertical, dashTimer, inAirSpeed, interpolation;
     float hoverAmount, tempMaxSpeed, lookX, lookY;
+    private float xRotation;
 
     PlayerInput playerInput;
 
@@ -65,8 +67,10 @@ public class Playermov : MonoBehaviour
 
         //camera
         player.transform.localEulerAngles = new Vector3(0, lookX, 0);
-        mouseVertical = Mathf.Clamp(lookY, -80, 80);
-        playerCam.transform.localEulerAngles = new Vector3(mouseVertical, lookX, 0);
+
+        xRotation = Mathf.Clamp(xRotation, -85, 85);
+        xRotation = lookY - recoil;
+        playerCam.transform.localEulerAngles = new Vector3(xRotation, lookX, 0);
 
         //Grounded Check and physics changes
         grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);

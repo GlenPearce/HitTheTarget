@@ -4,74 +4,103 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Gun : MonoBehaviour
 {
+    [Header("Gun Stats")]
+    public float fireRate = 0.25f;
+    public int gunRange;
+    public float lineDuration;
+    public int ammoMax;
 
-    public int gunDamage = 1;                                            // Set the number of hitpoints that this gun will take away from shot objects with a health script
-    public float fireRate = 0.25f;                                        // Number in seconds which controls how often the player can fire
-    public float weaponRange = 50f;                                        // Distance in Unity units over which the player can fire
-    public float hitForce = 100f;                                        // Amount of force which will be added to objects with a rigidbody shot by the player
-    public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
+    [Header("Initalise variables")]
+    public Camera camera;
+    public Transform gunTip;
 
-    public Camera fpsCam;                                                // Holds a reference to the first person camera
-    private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
-    private AudioSource gunAudio;                                        // Reference to the audio source which will play our shooting sound effect
-    private LineRenderer laserLine;                                        // Reference to the LineRenderer component which will display our laserline
-    private float nextFire;                                                // Float to store the time the player will be allowed to fire again, after firing
-
+    private float nextFire;
+    private int currentAmmo;
+    private bool shooting;
+    private LineRenderer shotLine;
+    Playermov playerMov;
 
     void Start()
     {
-        // Get and store a reference to our LineRenderer component
-        laserLine = GetComponent<LineRenderer>();
-
-        // Get and store a reference to our AudioSource component
-        gunAudio = GetComponent<AudioSource>();
+        //initalise things here
+        shotLine = GetComponent<LineRenderer>();
+        playerMov = GetComponent<Playermov>();
+        //start with full clip
+        currentAmmo = ammoMax;
     }
 
+    private void Update()
+    {
+        //timer for firerate
+        nextFire += Time.deltaTime;
+        //shoot is held, and can fire
+        if (shooting && nextFire > fireRate &&currentAmmo>0)
+        {
+            Shoot();
+            currentAmmo -= 1;
+            Debug.Log(currentAmmo);
+        }
 
+    }
+    //'input for shooting
     public void Fire(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            Debug.Log("firing");
-            // Update the time when our player can fire next
-            nextFire = Time.time + fireRate;
-
-            // Start our ShotEffect coroutine to turn our laser line on and off
-            StartCoroutine(ShotEffect());
-
-            // Create a vector at the center of our camera's viewport
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-
-            // Declare a raycast hit to store information about what our raycast has hit
-            RaycastHit hit;
-
-            // Set the start position for our visual effect for our laser to the position of gunEnd
-            laserLine.SetPosition(0, gunEnd.position);
-
-            // Check if our raycast has hit anything
-            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
-            {
-                // Set the end position for our laser line 
-                laserLine.SetPosition(1, hit.point);
-            }
-            else
-            {
-                // If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
-                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
-            }
+            shooting = true;
+        }
+        else if (context.canceled)
+        {
+            shooting = false;
         }
     }
 
+    void Shoot()
+    {
+        //ray start at camera
+        Vector3 origin = camera.transform.position;
+        RaycastHit hit;
+        //set the line to gun tip
+        shotLine.SetPosition(0, gunTip.position);
+        Debug.Log("Shoot");
+        //set the line active and then deactivate on timer
+        StartCoroutine(ShotEffect());
+        //reset firerate time
+        nextFire = 0;
 
+        //add the recoil to the player mov script
+        playerMov.recoil += Random.Range(1f, 2f);
+
+        //if hit 
+        if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
+        {
+            shotLine.SetPosition(1, hit.point);
+            Debug.Log(hit.collider.gameObject.name);
+            if(hit.collider.gameObject.tag == "Target")
+            {
+                hit.collider.gameObject.GetComponent<MovingTargets>().Die();
+            }
+        }
+        //if miss
+        else
+        {
+            //set line some units infront of the gun
+            shotLine.SetPosition(1, gunTip.position + (camera.transform.forward * gunRange));
+        }
+    }
+    //play audio here aswell 
     private IEnumerator ShotEffect()
     {
-        // Turn on our line renderer
-        laserLine.enabled = true;
-
-        //Wait for .07 seconds
-        yield return shotDuration;
-
-        // Deactivate our line renderer after waiting
-        laserLine.enabled = false;
+        shotLine.enabled = true;
+        yield return lineDuration;
+        shotLine.enabled = false;
+    }
+    //reload but needs time from animation to delay it
+    public void Reload(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currentAmmo = ammoMax;
+        }
     }
 }
