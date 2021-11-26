@@ -15,7 +15,7 @@ public class GameScore : MonoBehaviour
     {
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
         time = 0;
-        targetCount.text = "Targets: 0/" + targetAmnt;
+        targetCount.text = "Targets to get: " + targetAmnt;
     }
 
     private void Update()
@@ -50,7 +50,7 @@ public class GameScore : MonoBehaviour
     public void TargetHit()
     {
         targetAmnt--;
-        targetCount.text = "Targets: " + targetAmnt + "/" + targetAmnt;
+        targetCount.text = "Targets to get: " + targetAmnt;
         if (targetAmnt == 0)
         {
             //Code in finish

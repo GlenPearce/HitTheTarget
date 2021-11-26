@@ -3940,8 +3940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 718, y: 398}
-  m_SizeDelta: {x: 400, y: 80}
+  m_AnchoredPosition: {x: 695, y: 398}
+  m_SizeDelta: {x: 480, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043826609
 MonoBehaviour:
@@ -3976,7 +3976,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Targets: 00/00'
+  m_Text: 'Targets to get: 00'
 --- !u!222 &1043826610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6176,7 +6176,7 @@ GameObject:
   - component: {fileID: 1626959499}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7819,8 +7819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 718, y: 397.9999}
-  m_SizeDelta: {x: 400, y: 80}
+  m_AnchoredPosition: {x: 695, y: 397.9999}
+  m_SizeDelta: {x: 480, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127478227
 MonoBehaviour:

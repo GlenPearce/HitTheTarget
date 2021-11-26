@@ -12,8 +12,11 @@ public class MovingTargets : MonoBehaviour
     private float interpolation;
     private bool direction;
 
+    GameScore gameScore;
+
     private void Start()
     {
+        gameScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameScore>();
     }
 
     void Update()
@@ -46,7 +49,7 @@ public class MovingTargets : MonoBehaviour
 
     public void Die()
     {
-        //ADD SOME SCORE HERE TO FOR GAME HANDLER
+        gameScore.TargetHit();
 
         Destroy(spotOne.gameObject);
         Destroy(spotTwo.gameObject);
