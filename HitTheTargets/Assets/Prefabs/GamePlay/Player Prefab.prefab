@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6061695859294369457}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 239230852177545985}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,6 +358,7 @@ MonoBehaviour:
   slideFricton: 0.2
   mouseSens: 50
   camLerpSpeed: 20
+  recoil: 0
 --- !u!114 &616893618719138629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeef8c473e6d97459535cf4c081dbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 0.25
+  gunRange: 0
+  lineDuration: 0
+  ammoMax: 0
   camera: {fileID: 3736308402493893683}
+  gunTip: {fileID: 0}
 --- !u!54 &8727778583352401605
 Rigidbody:
   m_ObjectHideFlags: 0
