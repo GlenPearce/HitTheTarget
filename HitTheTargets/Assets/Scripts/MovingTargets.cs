@@ -14,7 +14,7 @@ public class MovingTargets : MonoBehaviour
     private bool direction;
 
     Canvas ping;
-    Camera mainC;
+    Camera mainCam;
     GameScore gameScore;
 
 
@@ -22,12 +22,13 @@ public class MovingTargets : MonoBehaviour
     {
         gameScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameScore>();
         ping = gameObject.transform.GetChild(0).gameObject.GetComponent<Canvas>();
-        mainC = Camera.main;
-        ping.worldCamera = mainC;
+        mainCam = Camera.main;
+        ping.worldCamera = mainCam;
     }
 
     void Update()
     {
+        
         interpolation = moveSpeed * Time.deltaTime;
         Debug.Log(direction);
         if (direction == true && ismoving)
@@ -40,7 +41,7 @@ public class MovingTargets : MonoBehaviour
         }
 
         //Canvas on child of this object always faces player
-        ping.transform.LookAt(mainC.transform.position);
+        ping.transform.LookAt(mainCam.transform.position);
 
     }
 
