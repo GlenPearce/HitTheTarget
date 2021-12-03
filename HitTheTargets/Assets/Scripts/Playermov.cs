@@ -67,11 +67,14 @@ public class Playermov : MonoBehaviour
 
         //camera
         player.transform.localEulerAngles = new Vector3(0, lookX, 0);
-
-        xRotation = Mathf.Clamp(xRotation, -85, 85);
+        lookY = Mathf.Clamp(lookY, -85, 85);
         xRotation = lookY - recoil;
+        xRotation = Mathf.Clamp(xRotation, -85, 85);
         playerCam.transform.localEulerAngles = new Vector3(xRotation, lookX, 0);
-
+        if (recoil >= 0)
+        {
+            recoil -= Time.deltaTime*10;
+        }
         //Grounded Check and physics changes
         grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
         //Check for on ground
