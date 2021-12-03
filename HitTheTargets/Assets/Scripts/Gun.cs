@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     [Header("Gun Stats")]
@@ -20,6 +21,8 @@ public class Gun : MonoBehaviour
     private LineRenderer shotLine;
     Playermov playerMov;
 
+    Text ammoCountTxt;
+
     void Start()
     {
         //initalise things here
@@ -27,6 +30,8 @@ public class Gun : MonoBehaviour
         playerMov = GetComponent<Playermov>();
         //start with full clip
         currentAmmo = ammoMax;
+        ammoCountTxt = GameObject.FindGameObjectWithTag("AmmoCounter").GetComponent<Text>();
+        ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
     }
 
     private void Update()
@@ -87,6 +92,9 @@ public class Gun : MonoBehaviour
             //set line some units infront of the gun
             shotLine.SetPosition(1, gunTip.position + (camera.transform.forward * gunRange));
         }
+
+        //Ammo count ui update
+        ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
     }
     //play audio here aswell 
     private IEnumerator ShotEffect()
@@ -101,6 +109,9 @@ public class Gun : MonoBehaviour
         if (context.performed)
         {
             currentAmmo = ammoMax;
+
+            //Update UI
+            ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Target
   - GameManager
   - UICam
+  - AmmoCounter
   layers:
   - Default
   - TransparentFX
