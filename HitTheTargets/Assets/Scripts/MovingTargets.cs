@@ -41,8 +41,10 @@ public class MovingTargets : MonoBehaviour
         }
 
         //Canvas on child of this object always faces player
+
         ping.transform.LookAt(mainCam.transform.position);
         float dist = Vector3.Distance(gameObject.transform.position, mainCam.transform.position);
+
         //shrinks the pinp on distance
         if (dist < 50)
         {
