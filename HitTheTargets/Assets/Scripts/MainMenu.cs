@@ -10,34 +10,39 @@ public class MainMenu : MonoBehaviour
     //public GameObject PauseUI;
 
     // Start is called before the first frame update
-    void Play()
+    public void Play()
     {
         MainUI.SetActive(false);
         PlayOptions.SetActive(true);
     }
 
-    void Back()
+    public void Back()
     {
         MainUI.SetActive(true);
         PlayOptions.SetActive(false);
     }
 
-    void Menu()
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Menu()
     {
         SceneManager.LoadScene(0);
     }
 
-    void PlayLvl1()
+    public void PlayLvl1()
     {
         SceneManager.LoadScene(1);
     }
 
-    void PlayLvl2()
+    public void PlayLvl2()
     {
         SceneManager.LoadScene(2);
     }
 
-    void PlayLvl3()
+    public void PlayLvl3()
     {
         SceneManager.LoadScene(3);
     }
