@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     [Header("Gun Stats")]
-    public float fireRate = 0.25f;
+    public float fireRate = 1f;
     public int gunRange;
     public float lineDuration;
     public int ammoMax;
@@ -121,6 +121,8 @@ public class Gun : MonoBehaviour
         if (context.performed)
         {
             currentAmmo = ammoMax;
+
+            m_animator.SetTrigger("Reload");
 
             //Update UI
             ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
