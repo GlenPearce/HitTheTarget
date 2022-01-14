@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
 
     Text ammoCountTxt;
 
+    public Animator m_animator;
+
     void Start()
     {
         //initalise things here
@@ -32,6 +34,8 @@ public class Gun : MonoBehaviour
         currentAmmo = ammoMax;
         ammoCountTxt = GameObject.FindGameObjectWithTag("AmmoCounter").GetComponent<Text>();
         ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
+
+        
     }
 
     private void Update()
@@ -42,6 +46,11 @@ public class Gun : MonoBehaviour
         if (shooting && nextFire > fireRate &&currentAmmo>0)
         {
             Shoot();
+
+
+            //shoot animation
+            m_animator.SetTrigger("Shoot");
+
             currentAmmo -= 1;
             Debug.Log(currentAmmo);
         }
@@ -53,6 +62,7 @@ public class Gun : MonoBehaviour
         if (context.started)
         {
             shooting = true;
+
         }
         else if (context.canceled)
         {
@@ -75,6 +85,8 @@ public class Gun : MonoBehaviour
 
         //add the recoil to the player mov script
         playerMov.recoil += Random.Range(1f, 2f);
+
+        
 
         //if hit 
         if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
