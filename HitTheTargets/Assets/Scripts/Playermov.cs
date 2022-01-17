@@ -45,6 +45,8 @@ public class Playermov : MonoBehaviour
     float hoverAmount, tempMaxSpeed, lookX, lookY;
     private float xRotation;
 
+    public bool moveEnable;
+
     PlayerInput playerInput;
 
     private void Awake()
@@ -63,48 +65,52 @@ public class Playermov : MonoBehaviour
     }
     void Update()
     {
-        SmoothCamera();
-
-        //camera
-        player.transform.localEulerAngles = new Vector3(0, lookX, 0);
-        lookY = Mathf.Clamp(lookY, -85, 85);
-        xRotation = lookY - recoil;
-        xRotation = Mathf.Clamp(xRotation, -85, 85);
-        playerCam.transform.localEulerAngles = new Vector3(xRotation, lookX, 0);
-        if (recoil >= 0)
+        //Check for movement to be enabled
+        if (moveEnable == true)
         {
-            recoil -= Time.deltaTime*10;
-        }
-        //Grounded Check and physics changes
-        grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
-        //Check for on ground
-        if (grounded && !sliding)
-        {
-            GroundPhysics();
-        }
-        //check for in Air
-        else
-        {
-            AirPhysics();
-        }
-        //movement
-        if (!sliding && !dashing)
-        {
-            //get input and make into vector 3
+            SmoothCamera();
 
-            horizontal = movementInput.x;
-            vertical = movementInput.y;
-            movementVec = new Vector3(horizontal, 0.0f, vertical);
-
-            rb.AddRelativeForce(movementVec * speed * inAirSpeed);
-
-            //speed limit ignores limits on Y axis
-            float tempY = rb.velocity.y;
-
-            if (rb.velocity.magnitude > maxSpeed)
+            //camera
+            player.transform.localEulerAngles = new Vector3(0, lookX, 0);
+            lookY = Mathf.Clamp(lookY, -85, 85);
+            xRotation = lookY - recoil;
+            xRotation = Mathf.Clamp(xRotation, -85, 85);
+            playerCam.transform.localEulerAngles = new Vector3(xRotation, lookX, 0);
+            if (recoil >= 0)
             {
-                rbVelocity = rb.velocity.normalized * maxSpeed;
-                rb.velocity = new Vector3(rbVelocity.x, tempY, rbVelocity.z);
+                recoil -= Time.deltaTime * 10;
+            }
+            //Grounded Check and physics changes
+            grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
+            //Check for on ground
+            if (grounded && !sliding)
+            {
+                GroundPhysics();
+            }
+            //check for in Air
+            else
+            {
+                AirPhysics();
+            }
+            //movement
+            if (!sliding && !dashing)
+            {
+                //get input and make into vector 3
+
+                horizontal = movementInput.x;
+                vertical = movementInput.y;
+                movementVec = new Vector3(horizontal, 0.0f, vertical);
+
+                rb.AddRelativeForce(movementVec * speed * inAirSpeed);
+
+                //speed limit ignores limits on Y axis
+                float tempY = rb.velocity.y;
+
+                if (rb.velocity.magnitude > maxSpeed)
+                {
+                    rbVelocity = rb.velocity.normalized * maxSpeed;
+                    rb.velocity = new Vector3(rbVelocity.x, tempY, rbVelocity.z);
+                }
             }
         }
     }

@@ -5,17 +5,47 @@ using UnityEngine.UI;
 
 public class GameScore : MonoBehaviour
 {
-    int targetAmnt, milliS, second, minute;
+    int targetAmnt, milliS, second, minute, levelScore;
     float time;
     bool stopTime = false;
+    string levelScoreStr;
 
-    public Text targetCount, timer;
+    public Text targetCount, timer, levelScoreTxt, startCountdownTxt;
+    public Playermov playermov;
+    public CanvasGroup finishCanGroup;
+    public GameObject finishCan, HudCan;
+
+    
 
     void Start()
     {
+        stopTime = true;
+        playermov.moveEnable = false;
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
         time = 0;
         targetCount.text = "Targets to get: " + targetAmnt;
+
+        StartCoroutine("Countdown");
+    }
+
+    IEnumerator Countdown()
+    {
+        for (int i = 5; i >= 0; i--)
+        {
+            startCountdownTxt.text = (i - 2).ToString();
+            if (i == 1)
+            {
+                startCountdownTxt.text = "GO!";
+            }
+            if (i == 0)
+            {
+                startCountdownTxt.text = "";
+                stopTime = false;
+                playermov.moveEnable = true;
+            }
+            yield return new WaitForSeconds(1);
+        }
+        yield return null;
     }
 
     private void Update()
@@ -46,14 +76,47 @@ public class GameScore : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+   
     public void TargetHit()
     {
         targetAmnt--;
         targetCount.text = "Targets to get: " + targetAmnt;
         if (targetAmnt == 0)
         {
-            //Code in finish
+            Finish();
         }
     }
+
+    void Finish()
+    {
+        //sets the level score and ui
+        levelScoreStr = timer.text = minute.ToString() + second.ToString() + milliS.ToString("00");
+        levelScore = int.Parse(levelScoreStr);
+        levelScoreTxt.text = "Score: " + timer.text;
+
+        //Sets high score
+        if (levelScore >= PlayerPrefs.GetInt("level1Score")){
+            PlayerPrefs.SetInt("level1Score", levelScore);
+        }
+
+        //disable player movement
+        playermov.moveEnable = false;
+
+        //Fade in Finish canvas
+        finishCan.SetActive(true);
+        HudCan.SetActive(false);
+        finishCanGroup.alpha = 0;
+        StartCoroutine("FinishFade");
+
+    }
+
+    IEnumerator FinishFade()
+    {
+        for (float j = 0; j == 1; j += 0.1f)
+        {
+            finishCanGroup.alpha = j;
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
 }
