@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Script for game score and game start and end
+
 public class GameScore : MonoBehaviour
 {
     int targetAmnt, milliS, second, minute, levelScore;
@@ -112,10 +115,10 @@ public class GameScore : MonoBehaviour
 
     IEnumerator FinishFade()
     {
-        for (float j = 0; j == 1; j += 0.1f)
+        for (float j = 1; j <= 10; j++)
         {
-            finishCanGroup.alpha = j;
-            yield return new WaitForSeconds(0.5f);
+            finishCanGroup.alpha += 0.1f;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
