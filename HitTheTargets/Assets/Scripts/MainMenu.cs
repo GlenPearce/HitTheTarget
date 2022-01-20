@@ -7,13 +7,25 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject MainUI;
     public GameObject PlayOptions;
-    //public GameObject PauseUI;
+    public GameObject OptionUI;
 
     // Start is called before the first frame update
     public void Play()
     {
         MainUI.SetActive(false);
         PlayOptions.SetActive(true);
+    }
+
+    public void Options()
+    {
+        MainUI.SetActive(false);
+        OptionUI.SetActive(true);
+    }
+
+    public void OptionBack()
+    {
+        MainUI.SetActive(true);
+        OptionUI.SetActive(false);
     }
 
     public void Back()
