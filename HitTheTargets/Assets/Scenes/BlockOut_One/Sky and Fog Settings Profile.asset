@@ -378,7 +378,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 150
   meanFreePath:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 400
     min: 1
   enableVolumetricFog:
@@ -386,7 +386,7 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.15848614, g: 0.16037738, b: 0.1565949, a: 1}
+    m_Value: {r: 0.30994126, g: 0.3301887, b: 0.30994126, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

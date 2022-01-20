@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - UICam
   - AmmoCounter
+  - KillBox
   layers:
   - Default
   - TransparentFX

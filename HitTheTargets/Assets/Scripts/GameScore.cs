@@ -15,7 +15,7 @@ public class GameScore : MonoBehaviour
 
     public Text targetCount, timer, levelScoreTxt, startCountdownTxt;
     public Playermov playermov;
-    public CanvasGroup finishCanGroup;
+    public CanvasGroup finishCanGroup, killFade;
     public GameObject finishCan, HudCan;
 
     
@@ -27,7 +27,6 @@ public class GameScore : MonoBehaviour
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
         time = 0;
         targetCount.text = "Targets to get: " + targetAmnt;
-
         StartCoroutine("Countdown");
     }
 
