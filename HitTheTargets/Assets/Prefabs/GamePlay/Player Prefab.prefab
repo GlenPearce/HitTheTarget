@@ -360,6 +360,7 @@ MonoBehaviour:
   mouseSens: 50
   camLerpSpeed: 20
   recoil: 0
+  moveEnable: 0
 --- !u!114 &616893618719138629
 MonoBehaviour:
   m_ObjectHideFlags: 0

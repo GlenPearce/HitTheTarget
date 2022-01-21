@@ -119,6 +119,7 @@ public class GameScore : MonoBehaviour
             finishCanGroup.alpha += 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
+        Cursor.lockState = CursorLockMode.None;
     }
 
 }
