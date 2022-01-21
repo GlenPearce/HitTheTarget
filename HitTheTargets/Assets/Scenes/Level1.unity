@@ -39749,6 +39749,46 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.581
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6599921
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7512726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 97.401
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268939672098537319, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7560259829117702888, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_TagString
       value: MainCamera
