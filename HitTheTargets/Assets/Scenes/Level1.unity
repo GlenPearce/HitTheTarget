@@ -2925,7 +2925,7 @@ Transform:
   - {fileID: 949474503}
   - {fileID: 1240213815}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167923108
 GameObject:
@@ -6400,7 +6400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351968098
 GameObject:
@@ -7864,7 +7864,7 @@ Transform:
   - {fileID: 1800262720}
   - {fileID: 1469680383}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &434948322 stripped
 Camera:
@@ -13686,7 +13686,7 @@ Transform:
   - {fileID: 1179163962}
   - {fileID: 1337179320}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747950932
 GameObject:
@@ -24172,7 +24172,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184157058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32399,7 +32399,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632035733
 GameObject:
@@ -38972,7 +38972,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974104263
 GameObject:
@@ -39754,7 +39754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808514845973648355, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1808514845973648355, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_LocalScale.x
@@ -39923,6 +39923,10 @@ PrefabInstance:
     - target: {fileID: 8727778583352401606, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: camLerpSpeed
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727778583352401606, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: dashCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8727778583352401606, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: slideFricton

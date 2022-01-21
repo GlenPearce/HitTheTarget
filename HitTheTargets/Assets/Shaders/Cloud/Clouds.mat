@@ -37,13 +37,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_081abdc0a85a4fb89ffcf03f5e45c378: 2
+    - Vector1_081abdc0a85a4fb89ffcf03f5e45c378: 10
     - Vector1_46eff23855674f9bb89b9c0b73a0198c: 1
     - Vector1_7387ba4a41ec468280888ea6068dd346: -1.8
     - Vector1_7aacf13a9e17489ea8f822423f31faba: 0
     - Vector1_7dfd7198ad514c65873f55bad80f685a: 40
     - Vector1_b638511b80d248bd8410a03f2219c754: 1
-    - Vector1_cd097c150e4e4e14a62bc250f7521964: 0.05
+    - Vector1_cd097c150e4e4e14a62bc250f7521964: 0.1
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0

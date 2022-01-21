@@ -348,7 +348,7 @@ MonoBehaviour:
   speed: 150
   maxSpeed: 1
   dashSpeed: 4
-  dashCooldown: 0
+  dashCooldown: 3
   jumpForce: 3
   doubleJumpHeight: 3
   doubleJumpFpower: 0

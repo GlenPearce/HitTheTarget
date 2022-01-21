@@ -12,11 +12,13 @@ public class GameScore : MonoBehaviour
     float time;
     bool stopTime = false;
     string levelScoreStr;
+    Rigidbody playerRB;
 
     public Text targetCount, timer, levelScoreTxt, startCountdownTxt;
     public Playermov playermov;
     public CanvasGroup finishCanGroup, killFade;
     public GameObject finishCan, HudCan;
+    
 
     
 
@@ -28,22 +30,26 @@ public class GameScore : MonoBehaviour
         time = 0;
         targetCount.text = "Targets to get: " + targetAmnt;
         StartCoroutine("Countdown");
+        playerRB = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+        playerRB.isKinematic = true;
     }
 
     IEnumerator Countdown()
     {
-        for (int i = 5; i >= 0; i--)
+        for (int i = 5; i >= 1; i--)
         {
             startCountdownTxt.text = (i - 2).ToString();
-            if (i == 1)
+            if (i == 2)
             {
                 startCountdownTxt.text = "GO!";
+                
             }
-            if (i == 0)
+            if (i == 1)
             {
                 startCountdownTxt.text = "";
                 stopTime = false;
                 playermov.moveEnable = true;
+                playerRB.isKinematic = false;
             }
             yield return new WaitForSeconds(1);
         }
