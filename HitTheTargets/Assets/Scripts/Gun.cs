@@ -21,7 +21,8 @@ public class Gun : MonoBehaviour
     private LineRenderer shotLine;
     Playermov playerMov;
 
-    Text ammoCountTxt;
+    GameObject[] ammoCountTxt;
+    public Slider ammoSlide;
 
     public Animator m_animator;
 
@@ -32,10 +33,12 @@ public class Gun : MonoBehaviour
         playerMov = GetComponent<Playermov>();
         //start with full clip
         currentAmmo = ammoMax;
-        ammoCountTxt = GameObject.FindGameObjectWithTag("AmmoCounter").GetComponent<Text>();
-        ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
-
-        
+        ammoCountTxt = GameObject.FindGameObjectsWithTag("AmmoCounter");
+        foreach(GameObject i in ammoCountTxt)
+        {
+            i.GetComponent<Text>().text = (currentAmmo).ToString();
+        }
+        ammoSlide.value = currentAmmo;
     }
 
     private void Update()
@@ -106,7 +109,11 @@ public class Gun : MonoBehaviour
         }
 
         //Ammo count ui update
-        ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
+        foreach (GameObject i in ammoCountTxt)
+        {
+            i.GetComponent<Text>().text = (currentAmmo).ToString();
+        }
+        ammoSlide.value = currentAmmo;
     }
     //play audio here aswell 
     private IEnumerator ShotEffect()
@@ -125,7 +132,11 @@ public class Gun : MonoBehaviour
             m_animator.SetTrigger("Reload");
 
             //Update UI
-            ammoCountTxt.text = (currentAmmo - 1) + " / " + (ammoMax - 1);
+            foreach (GameObject i in ammoCountTxt)
+            {
+                i.GetComponent<Text>().text = (currentAmmo).ToString();
+            }
+            ammoSlide.value = currentAmmo;
         }
     }
 }
