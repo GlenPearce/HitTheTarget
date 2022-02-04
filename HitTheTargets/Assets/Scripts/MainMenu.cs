@@ -5,41 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static bool GamePaused = false;
 
-    public GameObject pauseMenuUI;
     public GameObject MainUI;
     public GameObject PlayOptions;
     public GameObject OptionUI;
-
-    
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GamePaused = false;
-    }
-
-    void Pause()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GamePaused = true;
-    }
 
     public void Play()
     {
