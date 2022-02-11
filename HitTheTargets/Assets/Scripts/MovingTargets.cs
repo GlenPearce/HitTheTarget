@@ -16,10 +16,12 @@ public class MovingTargets : MonoBehaviour
     Canvas ping;
     Camera mainCam;
     GameScore gameScore;
+    Transform player;
 
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         gameScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameScore>();
         ping = gameObject.transform.GetChild(0).gameObject.GetComponent<Canvas>();
         mainCam = Camera.main;
@@ -28,7 +30,11 @@ public class MovingTargets : MonoBehaviour
 
     void Update()
     {
-        
+        var lookPos = player.position - transform.position;
+        lookPos.y = 10000;
+        var rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.05f);
+
         interpolation = moveSpeed * Time.deltaTime;
         Debug.Log(direction);
         if (direction == true && ismoving)
