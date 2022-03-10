@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.PS4;
+//using UnityEngine.PS4;
 
 public class Playermov : MonoBehaviour
 {
