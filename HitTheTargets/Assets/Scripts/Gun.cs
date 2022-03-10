@@ -26,6 +26,11 @@ public class Gun : MonoBehaviour
 
     public Animator m_animator;
 
+    [Header("Audio")]
+    public AudioSource dryFire;
+    public AudioSource fire;
+    public AudioSource reload;
+
     void Start()
     {
         //initalise things here
@@ -46,9 +51,10 @@ public class Gun : MonoBehaviour
         //timer for firerate
         nextFire += Time.deltaTime;
         //shoot is held, and can fire
-        if (shooting && nextFire > fireRate &&currentAmmo>0)
+        if (shooting && nextFire > fireRate && currentAmmo > 0)
         {
             Shoot();
+            fire.Play();
 
 
             //shoot animation
@@ -56,6 +62,11 @@ public class Gun : MonoBehaviour
 
             currentAmmo -= 1;
             Debug.Log(currentAmmo);
+        }
+        else if (shooting && nextFire > fireRate && currentAmmo <= 0)
+        {
+            dryFire.Play();
+            nextFire = 0;
         }
 
     }
@@ -130,6 +141,7 @@ public class Gun : MonoBehaviour
             currentAmmo = ammoMax;
 
             m_animator.SetTrigger("Reload");
+            reload.Play();
 
             //Update UI
             foreach (GameObject i in ammoCountTxt)
