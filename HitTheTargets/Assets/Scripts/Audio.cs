@@ -15,14 +15,17 @@ public class Audio : MonoBehaviour
     public float transitionRate;
 
     [Header("FootstepSounds")]
-    public AudioSource metalStep;
-    public AudioSource woodStep;
-    public AudioSource tileStep1;
-    public AudioSource tileStep2;
-    public AudioSource exteriorStep1;
-    public AudioSource exteriorStep2;
-    public AudioSource carpetStep1;
-    public AudioSource carpetStep2;
+    public AudioClip metalStep;
+    public AudioClip woodStep;
+    public AudioClip tileStep1;
+    //public AudioClip tileStep2;
+    public AudioClip exteriorStep1;
+    //public AudioClip exteriorStep2;
+    public AudioClip carpetStep1;
+    //public AudioClip carpetStep2;
+    AudioClip currentClip;
+
+    public AudioSource footstep;
 
     private void Start()
     {
@@ -70,6 +73,31 @@ public class Audio : MonoBehaviour
             interior.volume = 0;
             exterior.volume = 1;
         }
+
+    }
+    public void Step(string currentFloor)
+    {
+        if (currentFloor == "ConcFloor")
+        {
+            currentClip = exteriorStep1;
+        }
+        else if (currentFloor == "WoodFloor")
+        {
+            currentClip = woodStep;
+        }
+        else if (currentFloor == "TileFloor")
+        {
+            currentClip = tileStep1;
+        }
+        else if (currentFloor == "MetalFloor")
+        {
+            currentClip = metalStep;
+        }
+        else if (currentFloor == "CarpetFloor")
+        {
+            currentClip = carpetStep1;
+        }
+        footstep.PlayOneShot(currentClip);
     }
 
 }

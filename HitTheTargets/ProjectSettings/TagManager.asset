@@ -9,6 +9,11 @@ TagManager:
   - UICam
   - AmmoCounter
   - KillBox
+  - WoodFloor
+  - ConcFloor
+  - TileFloor
+  - MetalFloor
+  - CarpetFloor
   layers:
   - Default
   - TransparentFX
