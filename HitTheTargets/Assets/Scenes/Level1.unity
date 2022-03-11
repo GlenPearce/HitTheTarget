@@ -32666,6 +32666,14 @@ MonoBehaviour:
   exterior: {fileID: 2128168649}
   interior: {fileID: 1479244467}
   transitionRate: 0.1
+  metalStep: {fileID: 0}
+  woodStep: {fileID: 0}
+  tileStep1: {fileID: 0}
+  tileStep2: {fileID: 0}
+  exteriorStep1: {fileID: 0}
+  exteriorStep2: {fileID: 0}
+  carpetStep1: {fileID: 0}
+  carpetStep2: {fileID: 0}
 --- !u!1 &1187853321
 GameObject:
   m_ObjectHideFlags: 0
@@ -53340,11 +53348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894837272991204465, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3491840774389179869, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3839866535513986098, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: field of view

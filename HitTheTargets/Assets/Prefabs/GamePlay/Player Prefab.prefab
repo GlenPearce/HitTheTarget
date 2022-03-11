@@ -872,9 +872,10 @@ MonoBehaviour:
   airMaxSpeed: 0
   slideFricton: 0.2
   mouseSens: 50
+  moveEnable: 0
   camLerpSpeed: 20
   recoil: 0
-  moveEnable: 0
+  pistolAnim: {fileID: 4374380068470528138}
 --- !u!114 &616893618719138629
 MonoBehaviour:
   m_ObjectHideFlags: 0

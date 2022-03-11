@@ -28,9 +28,14 @@ public class Playermov : MonoBehaviour
     public float slideFricton;
     [Header("Player settings")]
     public float mouseSens;
+    public bool moveEnable;
     [Header("Camera settings")]
     public float camLerpSpeed;
     public float recoil;
+
+    [Header("Animation")]
+    public Animator pistolAnim;
+ 
 
     /// <summary>
     /// settings that are used for the various mechanics
@@ -45,9 +50,6 @@ public class Playermov : MonoBehaviour
     float horizontal, vertical, mouseVertical, dashTimer, inAirSpeed, interpolation;
     float hoverAmount, tempMaxSpeed, lookX, lookY;
     private float xRotation;
-
-    public bool moveEnable;
-
     PlayerInput playerInput;
 
     private void Awake()
@@ -63,6 +65,7 @@ public class Playermov : MonoBehaviour
         playerColl = GetComponent<Collider>();
         tempMaxSpeed = maxSpeed;
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
     void Update()
     {
@@ -114,6 +117,18 @@ public class Playermov : MonoBehaviour
                 }
             }
         }
+
+        //Movement speed effects the speed of gun idle, in turn effects footstep sounds
+        pistolAnim.SetFloat("AnimSpeed", rb.velocity.magnitude / 2);
+        if (rb.velocity.magnitude > 3)
+        {
+            pistolAnim.SetFloat("AnimSpeed", 3);
+        }
+        if (!grounded)
+        {
+            pistolAnim.SetFloat("AnimSpeed", 0.5f);
+        }
+
     }
 
     void FixedUpdate()

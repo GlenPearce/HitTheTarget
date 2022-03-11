@@ -9,8 +9,20 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public AudioSource exterior, interior;
+    [Header("AtmosSounds")]
+    public AudioSource exterior;
+    public AudioSource interior;
     public float transitionRate;
+
+    [Header("FootstepSounds")]
+    public AudioSource metalStep;
+    public AudioSource woodStep;
+    public AudioSource tileStep1;
+    public AudioSource tileStep2;
+    public AudioSource exteriorStep1;
+    public AudioSource exteriorStep2;
+    public AudioSource carpetStep1;
+    public AudioSource carpetStep2;
 
     private void Start()
     {
