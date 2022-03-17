@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     [Header("Gun Stats")]
-    public float fireRate = 1f;
-    public int gunRange;
-    public float lineDuration;
-    public int ammoMax;
+    float fireRate;
+    int gunRange;
+    float lineDuration;
+    int ammoMax;
+    public GameObject pistol;
+    public GameObject m4;
+    public GameObject railgun;
 
     [Header("Initalise variables")]
     public Camera camera;
@@ -37,6 +40,36 @@ public class Gun : MonoBehaviour
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
         playerMov = GetComponent<Playermov>();
+
+        //Change gun specs depending on active gun
+        int selectedWeapon;
+        selectedWeapon = PlayerPrefs.GetInt("SelectedWeapon");
+        if (selectedWeapon == 1)
+        {
+            pistol.SetActive(true);
+            fireRate = 0.5f;
+            gunRange = 100;
+            lineDuration = 1;
+            ammoMax = 9;
+        }
+        else if (selectedWeapon == 2)
+        {
+            m4.SetActive(true);
+            fireRate = 0.1f;
+            gunRange = 100;
+            lineDuration = 1;
+            ammoMax = 30;
+        }
+        if (selectedWeapon == 3)
+        {
+            railgun.SetActive(true);
+            fireRate = 2;
+            gunRange = 400;
+            lineDuration = 1;
+            ammoMax = 4;
+        }
+
+
         //start with full clip
         currentAmmo = ammoMax;
         ammoCountTxt = GameObject.FindGameObjectsWithTag("AmmoCounter");

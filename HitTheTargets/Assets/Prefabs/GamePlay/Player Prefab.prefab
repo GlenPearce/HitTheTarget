@@ -888,10 +888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeef8c473e6d97459535cf4c081dbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.25
-  gunRange: 0
-  lineDuration: 0
-  ammoMax: 0
+  pistol: {fileID: 3491840774389179869}
+  m4: {fileID: 1807808155453384412}
+  railgun: {fileID: 2894837272991204465}
   camera: {fileID: 3736308402493893683}
   gunTip: {fileID: 0}
   ammoSlide: {fileID: 0}
@@ -1064,6 +1063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: M4
       objectReference: {fileID: 0}
+    - target: {fileID: 3608664484419953880, guid: 4927956b98cecaf408f837a5e90b3c5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7876827062802415123, guid: 4927956b98cecaf408f837a5e90b3c5c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1110,6 +1113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4927956b98cecaf408f837a5e90b3c5c, type: 3}
+--- !u!1 &1807808155453384412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3608664484419953880, guid: 4927956b98cecaf408f837a5e90b3c5c, type: 3}
+  m_PrefabInstance: {fileID: 3099060155811168772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5067128680748448791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7876827062802415123, guid: 4927956b98cecaf408f837a5e90b3c5c, type: 3}
@@ -1170,8 +1178,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Railgun
       objectReference: {fileID: 0}
+    - target: {fileID: 7558868021483559326, guid: 1074d43e400b5414796db62845dd227f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1074d43e400b5414796db62845dd227f, type: 3}
+--- !u!1 &2894837272991204465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7558868021483559326, guid: 1074d43e400b5414796db62845dd227f, type: 3}
+  m_PrefabInstance: {fileID: 4668818030814682607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6347003698694778212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1792414506655101067, guid: 1074d43e400b5414796db62845dd227f, type: 3}
@@ -1232,11 +1249,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PistolLow
       objectReference: {fileID: 0}
+    - target: {fileID: 9099504429232099753, guid: c1d82df0f1593e245ae0e07f6b5ac0e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d82df0f1593e245ae0e07f6b5ac0e6, type: 3}
 --- !u!95 &4374380068470528138 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8252431529959238910, guid: c1d82df0f1593e245ae0e07f6b5ac0e6, type: 3}
+  m_PrefabInstance: {fileID: 5634686747574547572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3491840774389179869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9099504429232099753, guid: c1d82df0f1593e245ae0e07f6b5ac0e6, type: 3}
   m_PrefabInstance: {fileID: 5634686747574547572}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4268939672098537319 stripped

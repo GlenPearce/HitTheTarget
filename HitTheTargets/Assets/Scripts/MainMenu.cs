@@ -2,13 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
+    //Menus UI script
     public GameObject MainUI;
     public GameObject PlayOptions;
     public GameObject OptionUI;
+
+    int wep = 1, level = 1;
+
+    public Text levelTxt, wepTxt;
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PlayerPrefs.SetInt("SelectedWeapon", wep);
+        }
+    }
 
     public void Play()
     {
@@ -44,18 +56,35 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void PlayLvl1()
+    public void LevelSelect(int i)
     {
-        SceneManager.LoadScene(1);
+        level = i;
+        levelTxt.text = "Level: " + i;
     }
 
-    public void PlayLvl2()
+    //Chosen weapon 1 = pistol, 2 = M6, 3 = Railgun
+    public void WeaponSelect(int j)
     {
-        SceneManager.LoadScene(2);
+        string wepName = "Pistol";
+        wep = j;
+        if (wep == 1)
+        {
+            wepName = "Pistol";
+        }
+        else if (wep == 2)
+        {
+            wepName = "M4";
+        }
+        else
+        {
+            wepName = "Railgun";
+        } 
+        wepTxt.text = "Weapon: " + wepName;
     }
 
-    public void PlayLvl3()
+    public void Go()
     {
-        SceneManager.LoadScene(3);
+        PlayerPrefs.SetInt("SelectedWeapon", wep);
+        SceneManager.LoadScene(level);
     }
 }

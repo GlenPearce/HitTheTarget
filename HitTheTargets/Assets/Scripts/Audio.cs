@@ -25,12 +25,16 @@ public class Audio : MonoBehaviour
     //public AudioClip carpetStep2;
     AudioClip currentClip;
 
-    public AudioSource footstep;
+    AudioSource footstep;
+    string currentFloor;
 
     private void Start()
     {
+        currentFloor = "ConcFloor";
+        footstep = gameObject.GetComponent<AudioSource>();
         interior.volume = 0;
         exterior.volume = 1;
+
     }
     //Using exit to ensure the last collider left is the one to start the audio
     private void OnTriggerExit(Collider other)
@@ -75,7 +79,17 @@ public class Audio : MonoBehaviour
         }
 
     }
-    public void Step(string currentFloor)
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ConcFloor") | other.CompareTag("WoodFloor") | other.CompareTag("TileFloor") | other.CompareTag("MetalFloor") | other.CompareTag("CarpetFloor"))
+        {
+            currentFloor = other.name;
+        }
+        Debug.Log(currentFloor);
+    }
+
+    public void Step()
     {
         if (currentFloor == "ConcFloor")
         {
