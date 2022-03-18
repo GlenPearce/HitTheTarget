@@ -36,6 +36,45 @@ public class Audio : MonoBehaviour
         exterior.volume = 1;
 
     }
+
+    private void Update()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
+        {
+            currentFloor = hit.transform.tag;
+        }
+    }
+
+    //Step is triggered in the weapon animations. It plays a one shot of whichever floor is hit by the above raycast.
+    public void Step()
+    {
+        footstep.pitch = Random.Range(0.8f, 1.2f);
+        if (currentFloor == "ConcFloor")
+        {
+            currentClip = exteriorStep1;
+        }
+        else if (currentFloor == "WoodFloor")
+        {
+            currentClip = woodStep;
+        }
+        else if (currentFloor == "TileFloor")
+        {
+            currentClip = tileStep1;
+        }
+        else if (currentFloor == "MetalFloor")
+        {
+            currentClip = metalStep;
+        }
+        else if (currentFloor == "CarpetFloor")
+        {
+            currentClip = carpetStep1;
+        }
+        footstep.PlayOneShot(currentClip);
+    }
+
+
+
     //Using exit to ensure the last collider left is the one to start the audio
     private void OnTriggerExit(Collider other)
     {
@@ -79,41 +118,5 @@ public class Audio : MonoBehaviour
         }
 
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("ConcFloor") | other.CompareTag("WoodFloor") | other.CompareTag("TileFloor") | other.CompareTag("MetalFloor") | other.CompareTag("CarpetFloor"))
-        {
-            currentFloor = other.tag;
-        }
-        Debug.Log(currentFloor);
-    }
-
-    public void Step()
-    {
-        footstep.pitch = Random.Range(0.8f, 1.2f);
-        if (currentFloor == "ConcFloor")
-        {
-            currentClip = exteriorStep1;
-        }
-        else if (currentFloor == "WoodFloor")
-        {
-            currentClip = woodStep;
-        }
-        else if (currentFloor == "TileFloor")
-        {
-            currentClip = tileStep1;
-        }
-        else if (currentFloor == "MetalFloor")
-        {
-            currentClip = metalStep;
-        }
-        else if (currentFloor == "CarpetFloor")
-        {
-            currentClip = carpetStep1;
-        }
-        footstep.PlayOneShot(currentClip);
-    }
-
 }
 

@@ -86,6 +86,7 @@ public class Playermov : MonoBehaviour
             }
             //Grounded Check and physics changes
             grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
+
             //Check for on ground
             if (grounded && !sliding)
             {
@@ -321,7 +322,6 @@ public class Playermov : MonoBehaviour
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //allow double jump
                 doubleJump = true;
-                Debug.Log(doubleJump);
             }
             else if (grounded == false && doubleJump == true)
             {
