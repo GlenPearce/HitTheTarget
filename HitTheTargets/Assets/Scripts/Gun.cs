@@ -51,6 +51,8 @@ public class Gun : MonoBehaviour
             gunRange = 100;
             lineDuration = 1;
             ammoMax = 9;
+
+            m_animator = pistol.GetComponent<Animator>();
         }
         else if (selectedWeapon == 2)
         {
@@ -59,6 +61,8 @@ public class Gun : MonoBehaviour
             gunRange = 100;
             lineDuration = 1;
             ammoMax = 30;
+
+            m_animator = m4.GetComponent<Animator>();
         }
         if (selectedWeapon == 3)
         {
@@ -67,6 +71,8 @@ public class Gun : MonoBehaviour
             gunRange = 400;
             lineDuration = 1;
             ammoMax = 4;
+
+            m_animator = railgun.GetComponent<Animator>();
         }
 
 

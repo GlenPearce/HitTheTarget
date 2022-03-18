@@ -84,13 +84,14 @@ public class Audio : MonoBehaviour
     {
         if (other.CompareTag("ConcFloor") | other.CompareTag("WoodFloor") | other.CompareTag("TileFloor") | other.CompareTag("MetalFloor") | other.CompareTag("CarpetFloor"))
         {
-            currentFloor = other.name;
+            currentFloor = other.tag;
         }
         Debug.Log(currentFloor);
     }
 
     public void Step()
     {
+        footstep.pitch = Random.Range(0.8f, 1.2f);
         if (currentFloor == "ConcFloor")
         {
             currentClip = exteriorStep1;
