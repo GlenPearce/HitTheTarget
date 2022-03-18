@@ -33,9 +33,8 @@ public class Playermov : MonoBehaviour
     public float camLerpSpeed;
     public float recoil;
 
-    [Header("Animation")]
-    public Animator pistolAnim;
- 
+    Gun gun;
+
 
     /// <summary>
     /// settings that are used for the various mechanics
@@ -54,6 +53,7 @@ public class Playermov : MonoBehaviour
 
     private void Awake()
     {
+        gun = player.GetComponent<Gun>();
         playerInput = GetComponent<PlayerInput>();
         InputActionMap playerActionMap = playerInput.actions.FindActionMap("Gameplay");
         playerActionMap.Enable();
@@ -65,7 +65,7 @@ public class Playermov : MonoBehaviour
         playerColl = GetComponent<Collider>();
         tempMaxSpeed = maxSpeed;
         Cursor.lockState = CursorLockMode.Locked;
-        
+
     }
     void Update()
     {
@@ -119,14 +119,14 @@ public class Playermov : MonoBehaviour
         }
 
         //Movement speed effects the speed of gun idle, in turn effects footstep sounds
-        pistolAnim.SetFloat("AnimSpeed", rb.velocity.magnitude / 2);
+        gun.m_animator.SetFloat("AnimSpeed", rb.velocity.magnitude / 2);
         if (rb.velocity.magnitude > 3)
         {
-            pistolAnim.SetFloat("AnimSpeed", 3);
+            gun.m_animator.SetFloat("AnimSpeed", 3);
         }
         if (!grounded)
         {
-            pistolAnim.SetFloat("AnimSpeed", 0.5f);
+            gun.m_animator.SetFloat("AnimSpeed", 0.1f);
         }
 
     }

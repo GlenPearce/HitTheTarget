@@ -14,6 +14,7 @@ TagManager:
   - TileFloor
   - MetalFloor
   - CarpetFloor
+  - Gun
   layers:
   - Default
   - TransparentFX
