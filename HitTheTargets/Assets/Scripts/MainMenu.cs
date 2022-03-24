@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject OptionUI;
     public GameObject ShiftsUI;
 
-    int wep = 1, level = 1;
+    int wep = 0, level = 0;
 
     public Text levelTxt, wepTxt;
     private void Start()
@@ -68,15 +68,15 @@ public class MainMenu : MonoBehaviour
     {
         string wepName = "Pistol";
         wep = j;
-        if (wep == 1)
+        if (wep == 0)
         {
             wepName = "Pistol";
         }
-        else if (wep == 2)
+        else if (wep == 1)
         {
             wepName = "M4";
         }
-        else
+        else if (wep == 2)
         {
             wepName = "Railgun";
         } 
