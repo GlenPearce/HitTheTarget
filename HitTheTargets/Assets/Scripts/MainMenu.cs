@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject MainUI;
     public GameObject PlayOptions;
     public GameObject OptionUI;
+    public GameObject ShiftsUI;
 
     int wep = 1, level = 1;
 
@@ -86,5 +87,17 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedWeapon", wep);
         SceneManager.LoadScene(level);
+    }
+
+    public void Shifts(bool open)
+    {
+        if (open)
+        {
+            ShiftsUI.SetActive(true);
+        }
+        else
+        {
+            ShiftsUI.SetActive(false);
+        }
     }
 }

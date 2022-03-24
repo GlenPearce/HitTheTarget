@@ -40,7 +40,7 @@ public class Audio : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3f))
         {
             currentFloor = hit.transform.tag;
         }

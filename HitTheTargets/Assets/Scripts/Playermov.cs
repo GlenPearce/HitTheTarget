@@ -85,7 +85,8 @@ public class Playermov : MonoBehaviour
                 recoil -= Time.deltaTime * 10;
             }
             //Grounded Check and physics changes
-            grounded = Physics.Raycast(player.transform.position, Vector3.down, 1.1f);
+            //Check is depndant on size of character due to size modifier
+            grounded = Physics.Raycast(player.transform.position, Vector3.down, (transform.localScale.y + 0.1f));
 
             //Check for on ground
             if (grounded && !sliding)
