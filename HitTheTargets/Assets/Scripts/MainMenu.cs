@@ -12,9 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject OptionUI;
     public GameObject ShiftsUI;
 
-    int wep = 0, level = 0;
-
-    public Text levelTxt, wepTxt;
+    int wep = 1, level = 1;
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -59,28 +57,28 @@ public class MainMenu : MonoBehaviour
 
     public void LevelSelect(int i)
     {
+        i += 1;
         level = i;
-        levelTxt.text = "Level: " + i;
     }
 
     //Chosen weapon 1 = pistol, 2 = M6, 3 = Railgun
     public void WeaponSelect(int j)
     {
+        j += 1;
         string wepName = "Pistol";
         wep = j;
-        if (wep == 0)
+        if (wep == 1)
         {
             wepName = "Pistol";
         }
-        else if (wep == 1)
+        else if (wep == 2)
         {
             wepName = "M4";
         }
-        else if (wep == 2)
+        else if (wep == 3)
         {
             wepName = "Railgun";
         } 
-        wepTxt.text = "Weapon: " + wepName;
     }
 
     public void Go()
