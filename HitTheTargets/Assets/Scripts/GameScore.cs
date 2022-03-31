@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 //Script for game score and game start and end
+//Also contains high scores and unlockables
 
 public class GameScore : MonoBehaviour
 {
@@ -14,16 +16,18 @@ public class GameScore : MonoBehaviour
     string levelScoreStr;
     Rigidbody playerRB;
 
-    public Text targetCount, timer, levelScoreTxt, startCountdownTxt;
+    public PauseMenu pausemenu;
+    public Text targetCount, timer, levelScoreTxt, startCountdownTxt, highscoreTxt;
     public Playermov playermov;
     public CanvasGroup finishCanGroup, killFade;
-    public GameObject finishCan, HudCan;
-    
+    CanvasGroup hudCanGrp;
+    public GameObject finishCan, HudCan, newHigh;
 
-    
+
 
     void Start()
     {
+        hudCanGrp = HudCan.GetComponent<CanvasGroup>();
         stopTime = true;
         playermov.moveEnable = false;
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
@@ -42,7 +46,7 @@ public class GameScore : MonoBehaviour
             if (i == 2)
             {
                 startCountdownTxt.text = "GO!";
-                
+                pausemenu.escEnable = true;
             }
             if (i == 1)
             {
@@ -99,16 +103,39 @@ public class GameScore : MonoBehaviour
     {
         //sets the level score and ui
         levelScoreStr = timer.text = minute.ToString() + second.ToString() + milliS.ToString("00");
-        levelScore = int.Parse(levelScoreStr);
-        levelScoreTxt.text = "Score: " + timer.text;
+        levelScore = 100000 - int.Parse(levelScoreStr);
+        levelScoreTxt.text = "Score: " + levelScore;
+
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
 
         //Sets high score
-        if (levelScore >= PlayerPrefs.GetInt("level1Score")){
+        if (levelScore >= PlayerPrefs.GetInt("level1Score") & currentLevel == 1) 
+        { 
             PlayerPrefs.SetInt("level1Score", levelScore);
+            highscoreTxt.text = levelScore.ToString();
+            newHigh.SetActive(true);
+        }
+        else if (levelScore >= PlayerPrefs.GetInt("level2Score") & currentLevel == 2)
+        {
+            PlayerPrefs.SetInt("level2Score", levelScore);
+            highscoreTxt.text = levelScore.ToString();
+            newHigh.SetActive(true);
+        }
+        else if (levelScore >= PlayerPrefs.GetInt("level3Score") & currentLevel == 3)
+        {
+            PlayerPrefs.SetInt("level3Score", levelScore);
+            highscoreTxt.text = levelScore.ToString();
+            newHigh.SetActive(true);
+        }
+        else
+        {
+            highscoreTxt.text = PlayerPrefs.GetInt("level" + currentLevel + "Score").ToString();
         }
 
-        //disable player movement
+
+        //disable player movement + pause menu
         playermov.moveEnable = false;
+        pausemenu.escEnable = false;
 
         //Fade in Finish canvas
         finishCan.SetActive(true);
@@ -122,6 +149,7 @@ public class GameScore : MonoBehaviour
     {
         for (float j = 1; j <= 10; j++)
         {
+            hudCanGrp.alpha -= 0.1f;
             finishCanGroup.alpha += 0.1f;
             yield return new WaitForSeconds(0.1f);
         }

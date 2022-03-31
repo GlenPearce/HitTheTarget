@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     //Menus UI script
+
     public GameObject MainUI;
     public GameObject PlayOptions;
     public GameObject OptionUI;

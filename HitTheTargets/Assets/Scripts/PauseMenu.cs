@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GamePaused = false;
+    public bool GamePaused = false, escEnable = false;
     public GameObject pauseMenuUI;
 
     Playermov playermov;
@@ -19,17 +19,22 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //bool changed when in countdown or finish screen
+        if (escEnable)
         {
-            if (GamePaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (GamePaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
+        
     }
     public void Resume()
     {
