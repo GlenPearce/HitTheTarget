@@ -54805,7 +54805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894837272991204465, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2894837272991204465, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_TagString
@@ -54890,6 +54890,38 @@ PrefabInstance:
     - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.426
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.168
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99851036
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.054563303
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347003698694778212, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7560259829117702888, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
       propertyPath: m_TagString
@@ -55025,54 +55057,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
---- !u!1 &2005663885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3120716062829587539, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
-  m_PrefabInstance: {fileID: 2005663884}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2005663886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8440375124839141900, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
-  m_PrefabInstance: {fileID: 2005663884}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2005663887
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005663885}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: be5aa1d35fa08ac4a878b1a08fc7aece, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &2005663888
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005663886}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b90399ef1cd2c2f4ab5223b8ea078b4d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2005663889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2894837272991204465, guid: be7297c9521a0154bbb93c1ebe153278, type: 3}
