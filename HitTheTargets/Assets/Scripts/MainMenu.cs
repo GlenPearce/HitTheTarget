@@ -32,6 +32,15 @@ public class MainMenu : MonoBehaviour
     public float goldScore;
     public float silverScore;
     public float bronzeScore;
+    public Text lockReason;
+    public Text lockReasonWep;
+    public GameObject startBtn;
+    public GameObject shiftBtn;
+    public GameObject gravBtn;
+    public GameObject speedBtn;
+    public GameObject sizeBtn;
+    public GameObject dashBtn;
+    
 
 
     int wep = 1, level = 1;
@@ -49,6 +58,34 @@ public class MainMenu : MonoBehaviour
             highScore2.text = hs2.ToString();
             highScore3.text = hs3.ToString();
             ShowTrophy();
+
+            goldTxt.text = goldScore.ToString();
+            silverTxt.text = silverScore.ToString();
+            bronzeTxt.text = bronzeScore.ToString();
+
+            //Checks for shift unlocks
+            if (PlayerPrefs.GetInt("dash") == 0 & PlayerPrefs.GetInt("grav") == 0 & PlayerPrefs.GetInt("speed") == 0 & PlayerPrefs.GetInt("size") == 0)
+            {
+                shiftBtn.SetActive(false);
+            }
+            if (PlayerPrefs.GetInt("dash") == 1)
+            {
+                dashBtn.SetActive(true);
+            }
+            if (PlayerPrefs.GetInt("grav") == 1)
+            {
+                gravBtn.SetActive(true);
+            }
+            if (PlayerPrefs.GetInt("speed") == 1)
+            {
+                speedBtn.SetActive(true);
+            }
+            if (PlayerPrefs.GetInt("size") == 1)
+            {
+                sizeBtn.SetActive(true);
+            }
+
+
         }
     }
 
@@ -120,8 +157,24 @@ public class MainMenu : MonoBehaviour
     public void WeaponSelect(int j)
     {
         j += 1;
-        //string wepName = "Pistol";
         wep = j;
+
+        if (wep == 2 & hs1 < silverScore)
+        {
+            startBtn.SetActive(false);
+            lockReasonWep.text = "Haven't unlocked M4!";
+        }
+        else if (wep == 3 & hs2 < goldScore)
+        {
+            startBtn.SetActive(false);
+            lockReasonWep.text = "Haven't unlocked Railgun!";
+        }
+        else
+        {
+            lockReasonWep.text = "";
+        }
+        startCheck();
+
 
     }
 
@@ -154,8 +207,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    //shows the trophy earned, plus disables play button and shows reason if something hasn't been unlocked
     public void ShowTrophy()
     {
+
         if (level == 1)
         {
             HSTrophy.SetActive(true);
@@ -176,6 +231,8 @@ public class MainMenu : MonoBehaviour
                 HSTrophy.SetActive(false);
             }
 
+            lockReason.text = "";
+           
         }
         if (level == 2)
         {
@@ -195,6 +252,16 @@ public class MainMenu : MonoBehaviour
             else
             {
                 HSTrophy.SetActive(false);
+            }
+
+            if (hs1 == 0)
+            {
+                startBtn.SetActive(false);
+                lockReason.text = "Have not unlocked level 2!";
+            }
+            else
+            {
+                lockReason.text = "";
             }
 
         }
@@ -218,8 +285,33 @@ public class MainMenu : MonoBehaviour
                 HSTrophy.SetActive(false);
             }
 
+            if (hs2 == 0)
+            {
+                startBtn.SetActive(false);
+                lockReason.text = "Have not unlocked level 3!";
+            }
+            else
+            {
+                lockReason.text = "";
+            }
         }
+        startCheck();
 
+    }
+
+    //Checks there is no loked options chosen
+    public void startCheck()
+    {
+        if (lockReasonWep.text == "" & lockReason.text == "")
+        {
+            startBtn.SetActive(true);
+        }
+    }
+
+    //is called when a shift orb is collected in game
+    public void unlockShift(string shift)
+    {
+        PlayerPrefs.SetInt(shift, 1);
     }
 
 }
