@@ -32,16 +32,16 @@ public class Gun : MonoBehaviour
     public Animator m_animator;
 
     [Header("Audio")]
-    public AudioSource dryFire;
-    public AudioSource fire;
-    public AudioSource reload;
+    AudioSource dryFire;
+    AudioSource fire;
+    AudioSource reload;
 
     void Start()
     {
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
         playerMov = GetComponent<Playermov>();
-
+  
         //Change gun specs depending on active gun
        
         selectedWeapon = PlayerPrefs.GetInt("SelectedWeapon");
@@ -75,7 +75,9 @@ public class Gun : MonoBehaviour
 
             m_animator = railgun.GetComponent<Animator>();
         }
-
+        dryFire = GameObject.FindWithTag("DryFire").GetComponent<AudioSource>();
+        fire = GameObject.FindWithTag("Fire").GetComponent<AudioSource>();
+        reload = GameObject.FindWithTag("Reload").GetComponent<AudioSource>();
 
         //start with full clip
         currentAmmo = ammoMax;

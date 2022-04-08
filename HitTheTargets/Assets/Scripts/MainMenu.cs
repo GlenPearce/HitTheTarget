@@ -159,12 +159,12 @@ public class MainMenu : MonoBehaviour
         j += 1;
         wep = j;
 
-        if (wep == 2 & hs1 < silverScore)
+        /*if (wep == 2 & hs1 < silverScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked M4!";
         }
-       else if (wep == 3 & hs2 < goldScore)
+        if (wep == 3 & hs2 < goldScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked Railgun!";
@@ -172,7 +172,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             lockReasonWep.text = "";
-        }
+        }*/
         startCheck();
 
 
