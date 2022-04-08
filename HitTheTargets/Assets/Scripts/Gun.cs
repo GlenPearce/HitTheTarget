@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     public GameObject pistol;
     public GameObject m4;
     public GameObject railgun;
+    int selectedWeapon;
 
     [Header("Initalise variables")]
     public Camera camera;
@@ -42,7 +43,7 @@ public class Gun : MonoBehaviour
         playerMov = GetComponent<Playermov>();
 
         //Change gun specs depending on active gun
-        int selectedWeapon;
+       
         selectedWeapon = PlayerPrefs.GetInt("SelectedWeapon");
         if (selectedWeapon == 1)
         {
@@ -97,8 +98,17 @@ public class Gun : MonoBehaviour
             fire.Play();
 
 
-            //shoot animation
-            m_animator.SetTrigger("Shoot");
+            if (selectedWeapon == 2)
+            {
+                //shoot animation
+                m_animator.SetBool("Shoot", true);
+            }
+            else
+            {
+                //shoot animation
+                m_animator.SetTrigger("Shoot");
+            }
+                
 
             currentAmmo -= 1;
             Debug.Log(currentAmmo);
@@ -107,6 +117,11 @@ public class Gun : MonoBehaviour
         {
             dryFire.Play();
             nextFire = 0;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            m_animator.SetBool("Shoot", false);
         }
 
     }

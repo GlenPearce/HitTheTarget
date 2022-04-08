@@ -164,7 +164,7 @@ public class MainMenu : MonoBehaviour
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked M4!";
         }
-        else if (wep == 3 & hs2 < goldScore)
+       else if (wep == 3 & hs2 < goldScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked Railgun!";
