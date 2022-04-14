@@ -36,7 +36,7 @@ public class MovingTargets : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.05f);
 
         interpolation = moveSpeed * Time.deltaTime;
-        Debug.Log(direction);
+
         if (direction == true && ismoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, spotOne.position, interpolation);
@@ -65,7 +65,7 @@ public class MovingTargets : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+
         if(other.name == "spotOne")
         {
             direction = false;

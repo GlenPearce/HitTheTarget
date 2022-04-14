@@ -47,6 +47,7 @@ public class GameScore : MonoBehaviour
             {
                 startCountdownTxt.text = "GO!";
                 pausemenu.escEnable = true;
+                pausemenu.escEnable = true;
             }
             if (i == 1)
             {

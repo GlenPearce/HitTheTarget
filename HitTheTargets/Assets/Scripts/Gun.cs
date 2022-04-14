@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
                 
 
             currentAmmo -= 1;
-            Debug.Log(currentAmmo);
+
         }
         else if (shooting && nextFire > fireRate && currentAmmo <= 0)
         {
@@ -148,7 +148,7 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         //set the line to gun tip
         shotLine.SetPosition(0, gunTip.position);
-        Debug.Log("Shoot");
+
         //set the line active and then deactivate on timer
         StartCoroutine(ShotEffect());
         //reset firerate time
@@ -163,7 +163,7 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
         {
             shotLine.SetPosition(1, hit.point);
-            Debug.Log(hit.collider.gameObject.name);
+
             if(hit.collider.gameObject.tag == "Target")
             {
                 hit.collider.gameObject.GetComponent<MovingTargets>().Die();

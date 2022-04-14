@@ -232,7 +232,7 @@ public class Playermov : MonoBehaviour
     /// </summary>
     public void Dash()
     {
-        Debug.Log("PRESSED");
+
         if (dashTimer >= dashCooldown)
         {
             if (grounded)
@@ -256,11 +256,11 @@ public class Playermov : MonoBehaviour
     /// </summary>
     public void hover()
     {
-        Debug.Log("PRESSED");
+
         if (hoverAmount < maxHover&& hovering)
         {
             rb.AddForce(0, hoverPower, 0);
-            Debug.Log("charging" + hoverAmount);
+
             hoverAmount += Time.deltaTime;
         }
     }
@@ -269,7 +269,7 @@ public class Playermov : MonoBehaviour
     /// </summary>
     public void Slide(InputAction.CallbackContext context)
     {
-        Debug.Log("PRESSED");
+
         if (context.performed)
         {
             sliding = true;
@@ -293,7 +293,7 @@ public class Playermov : MonoBehaviour
     /// </summary>
     public void MouseLock(InputAction.CallbackContext context)
     {
-        Debug.Log("PRESSED");
+
         if (context.performed)
         {
             if( Cursor.lockState == CursorLockMode.Locked)
@@ -317,7 +317,7 @@ public class Playermov : MonoBehaviour
         {
             hovering = true;
 
-            Debug.Log("PRESSED");
+
             if (grounded == true)
             {
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);

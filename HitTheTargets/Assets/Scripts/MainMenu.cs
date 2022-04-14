@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -40,8 +41,15 @@ public class MainMenu : MonoBehaviour
     public GameObject speedBtn;
     public GameObject sizeBtn;
     public GameObject dashBtn;
-    
 
+    [Header("Audio UI")]
+    public Slider fxSlide;
+    public Slider musicSlide;
+    public AudioMixer musicVol;
+    public AudioMixer fxVol;
+
+    int graphicsQuality;
+    
 
     int wep = 1, level = 1;
     private void Start()
@@ -84,9 +92,27 @@ public class MainMenu : MonoBehaviour
             {
                 sizeBtn.SetActive(true);
             }
-
-
         }
+
+        //Sets the default to 0 and if float is anything other, sets it to that
+        if (PlayerPrefs.GetFloat("MusicVol") != 0)
+        {
+            musicSlide.value = PlayerPrefs.GetFloat("MusicVol");
+            musicVol.SetFloat("MusicVol", musicSlide.value);
+        }
+        if (PlayerPrefs.GetFloat("FxVol") != 0)
+        {
+            fxSlide.value = PlayerPrefs.GetFloat("FxVol");
+            fxVol.SetFloat("FxVol", fxSlide.value);
+        }
+
+        //Graphics quality default
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GQual"));
+
+        Debug.Log(musicSlide.value + "Music");
+        Debug.Log(fxSlide.value + "Fx");
+
+
     }
 
     public void Play()
@@ -97,13 +123,20 @@ public class MainMenu : MonoBehaviour
 
     public void Options()
     {
-        MainUI.SetActive(false);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            MainUI.SetActive(false);
+        }
         OptionUI.SetActive(true);
     }
 
     public void OptionBack()
     {
-        MainUI.SetActive(true);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            MainUI.SetActive(true);
+        }
+        
         OptionUI.SetActive(false);
     }
 
@@ -314,4 +347,21 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt(shift, 1);
     }
 
+
+    //Options Menu
+    public void FxSlider()
+    {
+        fxVol.SetFloat("FxVol", fxSlide.value);
+        PlayerPrefs.SetFloat("FxVol", fxSlide.value);
+    }
+    public void MusicSlider()
+    {
+        musicVol.SetFloat("MusicVol", musicSlide.value);
+        PlayerPrefs.SetFloat("MusicVol", musicSlide.value);
+    }
+    public void GQuality(int i)
+    {
+        QualitySettings.SetQualityLevel(i);
+        PlayerPrefs.SetInt("GQual", i);
+    }
 }

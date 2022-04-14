@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool GamePaused = false, escEnable = false;
+    public bool GamePaused = false, escEnable;
     public GameObject pauseMenuUI;
 
     Playermov playermov;
@@ -13,12 +13,13 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         playermov = GameObject.FindWithTag("Player").GetComponent<Playermov>();
-        
+        escEnable = false;
     }
 
     // Update is called once per frame
     public void Update()
     {
+        Debug.Log(escEnable);
         //bool changed when in countdown or finish screen
         if (escEnable)
         {
