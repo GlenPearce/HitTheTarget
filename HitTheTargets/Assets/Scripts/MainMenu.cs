@@ -48,12 +48,41 @@ public class MainMenu : MonoBehaviour
     public AudioMixer musicVol;
     public AudioMixer fxVol;
 
+    [Header("Other Options")]
+    public Slider mouseSens;
+    Playermov player;
     int graphicsQuality;
     
 
     int wep = 1, level = 1;
     private void Start()
     {
+        //Mouse sens default + set to player if in scene
+        if (PlayerPrefs.GetFloat("MouseSens") == 0)
+        {
+            PlayerPrefs.SetFloat("MouseSens", 1);
+            mouseSens.value = PlayerPrefs.GetFloat("MouseSens");
+        }
+
+        //Sets the default to 0 and if float is anything other, sets it to that
+        if (PlayerPrefs.GetFloat("MusicVol") != 0)
+        {
+            musicSlide.value = PlayerPrefs.GetFloat("MusicVol");
+            musicVol.SetFloat("MusicVol", musicSlide.value);
+        }
+        if (PlayerPrefs.GetFloat("FxVol") != 0)
+        {
+            fxSlide.value = PlayerPrefs.GetFloat("FxVol");
+            fxVol.SetFloat("FxVol", fxSlide.value);
+        }
+
+        //Graphics quality default
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GQual"));
+
+        Debug.Log(musicSlide.value + "Music");
+        Debug.Log(fxSlide.value + "Fx");
+
+
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             PlayerPrefs.SetInt("SelectedWeapon", wep);
@@ -92,26 +121,13 @@ public class MainMenu : MonoBehaviour
             {
                 sizeBtn.SetActive(true);
             }
+            //if in scene other then main menu
+            else
+            {
+                player = GameObject.FindWithTag("Player").GetComponent<Playermov>();
+                player.mouseSens = mouseSens.value;
+            }
         }
-
-        //Sets the default to 0 and if float is anything other, sets it to that
-        if (PlayerPrefs.GetFloat("MusicVol") != 0)
-        {
-            musicSlide.value = PlayerPrefs.GetFloat("MusicVol");
-            musicVol.SetFloat("MusicVol", musicSlide.value);
-        }
-        if (PlayerPrefs.GetFloat("FxVol") != 0)
-        {
-            fxSlide.value = PlayerPrefs.GetFloat("FxVol");
-            fxVol.SetFloat("FxVol", fxSlide.value);
-        }
-
-        //Graphics quality default
-        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GQual"));
-
-        Debug.Log(musicSlide.value + "Music");
-        Debug.Log(fxSlide.value + "Fx");
-
 
     }
 
@@ -363,5 +379,14 @@ public class MainMenu : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(i);
         PlayerPrefs.SetInt("GQual", i);
+    }
+
+    public void MouseSens()
+    {
+        PlayerPrefs.SetFloat("MouseSens", mouseSens.value);
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            player.mouseSens = mouseSens.value;
+        }
     }
 }
