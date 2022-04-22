@@ -61,8 +61,8 @@ public class MainMenu : MonoBehaviour
         if (PlayerPrefs.GetFloat("MouseSens") == 0)
         {
             PlayerPrefs.SetFloat("MouseSens", 1);
-            mouseSens.value = PlayerPrefs.GetFloat("MouseSens");
         }
+        mouseSens.value = PlayerPrefs.GetFloat("MouseSens");
 
         //Sets the default to 0 and if float is anything other, sets it to that
         if (PlayerPrefs.GetFloat("MusicVol") != 0)
@@ -79,9 +79,7 @@ public class MainMenu : MonoBehaviour
         //Graphics quality default
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GQual"));
 
-        Debug.Log(musicSlide.value + "Music");
-        Debug.Log(fxSlide.value + "Fx");
-
+        Debug.Log(PlayerPrefs.GetFloat("MouseSens"));
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -121,12 +119,11 @@ public class MainMenu : MonoBehaviour
             {
                 sizeBtn.SetActive(true);
             }
-            //if in scene other then main menu
             else
             {
                 player = GameObject.FindWithTag("Player").GetComponent<Playermov>();
-                player.mouseSens = mouseSens.value;
             }
+
         }
 
     }
@@ -386,7 +383,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("MouseSens", mouseSens.value);
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            player.mouseSens = mouseSens.value;
+            player.MouseSensUpdate();
         }
     }
 }

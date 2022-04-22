@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public bool GamePaused = false, escEnable;
     public GameObject pauseMenuUI;
+    MainMenu menu;
 
     Playermov playermov;
 
@@ -14,12 +15,12 @@ public class PauseMenu : MonoBehaviour
     {
         playermov = GameObject.FindWithTag("Player").GetComponent<Playermov>();
         escEnable = false;
+        menu = GetComponent<MainMenu>();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        Debug.Log(escEnable);
         //bool changed when in countdown or finish screen
         if (escEnable)
         {
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        menu.OptionUI.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
         playermov.moveEnable = true;

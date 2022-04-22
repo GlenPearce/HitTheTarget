@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 public class GameScore : MonoBehaviour
 {
     int targetAmnt, milliS, second, minute, levelScore;
-    float time;
     bool stopTime = false;
     string levelScoreStr;
     Rigidbody playerRB;
@@ -31,7 +30,6 @@ public class GameScore : MonoBehaviour
         stopTime = true;
         playermov.moveEnable = false;
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
-        time = 0;
         targetCount.text = "Targets to get: " + targetAmnt;
         StartCoroutine("Countdown");
         playerRB = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
@@ -42,6 +40,7 @@ public class GameScore : MonoBehaviour
     {
         for (int i = 5; i >= 1; i--)
         {
+            Debug.Log(i);
             startCountdownTxt.text = (i - 2).ToString();
             if (i == 2)
             {

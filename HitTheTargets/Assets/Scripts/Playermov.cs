@@ -29,12 +29,12 @@ public class Playermov : MonoBehaviour
     [Header("Player settings")]
     public float mouseSens;
     public bool moveEnable;
+    public MainMenu menu;
     [Header("Camera settings")]
     public float camLerpSpeed;
     public float recoil;
 
     Gun gun;
-
 
     /// <summary>
     /// settings that are used for the various mechanics
@@ -65,7 +65,7 @@ public class Playermov : MonoBehaviour
         playerColl = GetComponent<Collider>();
         tempMaxSpeed = maxSpeed;
         Cursor.lockState = CursorLockMode.Locked;
-
+        MouseSensUpdate();
     }
     void Update()
     {
@@ -214,6 +214,10 @@ public class Playermov : MonoBehaviour
     /// <summary>
     /// rotates the camera based on mouse movement, multiplying the input by fixed delta time because its supposed to reduce the stuttering but not really noticed any effect
     /// </summary>
+    public void MouseSensUpdate()
+    {
+        mouseSens = PlayerPrefs.GetFloat("MouseSens");
+    }
     public void cameraMov(InputAction.CallbackContext context)
     {
         lookX += context.ReadValue<Vector2>().x * mouseSens * Time.fixedDeltaTime;
