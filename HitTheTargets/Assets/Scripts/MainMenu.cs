@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
 
     [Header("Other Options")]
     public Slider mouseSens;
-    Playermov player;
+    public Playermov player;
     int graphicsQuality;
     
 
@@ -119,12 +119,9 @@ public class MainMenu : MonoBehaviour
             {
                 sizeBtn.SetActive(true);
             }
-            else
-            {
-                player = GameObject.FindWithTag("Player").GetComponent<Playermov>();
-            }
 
         }
+
 
     }
 
@@ -205,12 +202,12 @@ public class MainMenu : MonoBehaviour
         j += 1;
         wep = j;
 
-        /*if (wep == 2 & hs1 < silverScore)
+        if (wep == 2 & hs1 < silverScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked M4!";
         }
-        if (wep == 3 & hs2 < goldScore)
+        else if (wep == 3 & hs2 < goldScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked Railgun!";
@@ -218,7 +215,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             lockReasonWep.text = "";
-        }*/
+        }
         startCheck();
 
 

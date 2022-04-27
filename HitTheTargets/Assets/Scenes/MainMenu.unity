@@ -4214,6 +4214,7 @@ MonoBehaviour:
   musicVol: {fileID: 24100000, guid: 5702399b10b572b46a0ede60eefe5bec, type: 2}
   fxVol: {fileID: 24100000, guid: 95b7288b8e6fcce4c99891d8622c1c3f, type: 2}
   mouseSens: {fileID: 531286112}
+  player: {fileID: 0}
 --- !u!4 &506209865
 Transform:
   m_ObjectHideFlags: 0

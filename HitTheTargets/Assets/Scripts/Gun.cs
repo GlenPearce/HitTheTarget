@@ -18,12 +18,13 @@ public class Gun : MonoBehaviour
 
     [Header("Initalise variables")]
     public Camera camera;
-    public Transform gunTip;
+    Transform gunTip;
 
     private float nextFire;
     private int currentAmmo;
     private bool shooting;
     private LineRenderer shotLine;
+    public Material lineMat;
     Playermov playerMov;
 
     GameObject[] ammoCountTxt;
@@ -41,10 +42,11 @@ public class Gun : MonoBehaviour
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
         playerMov = GetComponent<Playermov>();
-  
+
+
         //Change gun specs depending on active gun
-       
         selectedWeapon = PlayerPrefs.GetInt("SelectedWeapon");
+        lineMat.SetColor("_EmissiveColor", Color.red * 500);
         if (selectedWeapon == 1)
         {
             pistol.SetActive(true);
@@ -72,9 +74,12 @@ public class Gun : MonoBehaviour
             gunRange = 400;
             lineDuration = 1;
             ammoMax = 4;
+            lineMat.SetColor("_EmissiveColor", Color.blue * 1000);
 
             m_animator = railgun.GetComponent<Animator>();
         }
+
+        gunTip = GameObject.FindWithTag("gunTip").transform;
         dryFire = GameObject.FindWithTag("DryFire").GetComponent<AudioSource>();
         fire = GameObject.FindWithTag("Fire").GetComponent<AudioSource>();
         reload = GameObject.FindWithTag("Reload").GetComponent<AudioSource>();
@@ -147,7 +152,9 @@ public class Gun : MonoBehaviour
         Vector3 origin = camera.transform.position;
         RaycastHit hit;
         //set the line to gun tip
+
         shotLine.SetPosition(0, gunTip.position);
+        
 
         //set the line active and then deactivate on timer
         StartCoroutine(ShotEffect());
@@ -157,10 +164,23 @@ public class Gun : MonoBehaviour
         //add the recoil to the player mov script
         playerMov.recoil += Random.Range(1f, 2f);
 
-        
+        //if Shooting Railgun
+        if (selectedWeapon == 3)
+        {
+            RaycastHit[] hits;
+            hits = Physics.RaycastAll(origin, camera.transform.forward, gunRange);
 
-        //if hit 
-        if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
+            foreach (RaycastHit hitRG in hits)
+            {
+                if (hitRG.collider.gameObject.tag == "Target")
+                {
+                    hitRG.collider.gameObject.GetComponent<MovingTargets>().Die();
+                }
+                
+            }
+        }
+        //if hit with pistol or M4
+        else if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
         {
             shotLine.SetPosition(1, hit.point);
 

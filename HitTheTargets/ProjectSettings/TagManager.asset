@@ -18,6 +18,7 @@ TagManager:
   - Fire
   - Reload
   - DryFire
+  - gunTip
   layers:
   - Default
   - TransparentFX

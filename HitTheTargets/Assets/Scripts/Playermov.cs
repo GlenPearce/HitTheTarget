@@ -27,7 +27,7 @@ public class Playermov : MonoBehaviour
     [Header("Player slide settings")]
     public float slideFricton;
     [Header("Player settings")]
-    public float mouseSens;
+    float mouseSens;
     public bool moveEnable;
     public MainMenu menu;
     [Header("Camera settings")]
