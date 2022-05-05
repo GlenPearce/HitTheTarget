@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 //Script for audio triggers for ambience
@@ -31,12 +32,14 @@ public class Audio : MonoBehaviour
 
     private void Start()
     {
+
         currentFloor = "ConcFloor";
         footstep = gameObject.GetComponent<AudioSource>();
         interior.volume = 0;
         exterior.volume = 1;
 
     }
+    
 
     private void Update()
     {
