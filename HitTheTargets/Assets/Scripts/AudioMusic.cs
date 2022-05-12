@@ -14,7 +14,7 @@ public class AudioMusic : MonoBehaviour
 
         currentMusic = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
 
-        int chosenSong = Random.Range(0, 2);
+        int chosenSong = Random.Range(0, 3);
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             chosenSong = 3;
