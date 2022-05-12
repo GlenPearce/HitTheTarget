@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public GameObject OptionUI;
     public GameObject ShiftsUI;
     public GameObject unlocksUI;
+    public GameObject HowtoPlayUI;
 
     [Header("UnlockUI")]
     float hs1, hs2, hs3;
@@ -138,6 +139,18 @@ public class MainMenu : MonoBehaviour
             MainUI.SetActive(false);
         }
         OptionUI.SetActive(true);
+    }
+
+    public void HowtoPlay()
+    {
+        MainUI.SetActive(false);
+        HowtoPlayUI.SetActive(true);
+    }
+
+    public void HowtoPlayBack()
+    {
+        MainUI.SetActive(true);
+        HowtoPlayUI.SetActive(false);
     }
 
     public void OptionBack()
