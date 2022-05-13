@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6335303579189581100
+--- !u!114 &-2084632695427569954
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door
+  m_Name: Shutter
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _MASKMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE
+  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _MASKMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -42,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 09bca1ff052056a44aed7ecf60420510, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5fe384dbc448b69409979d8b5bb743d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -78,19 +78,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 09bca1ff052056a44aed7ecf60420510, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5fe384dbc448b69409979d8b5bb743d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: 5c67ded53918cbc4686c99efc7f3fd8c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 420af7a5d8f8c7f4892debf4686bb05b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 868676da1fca5314b9a14da95087a07d, type: 3}
+        m_Texture: {fileID: 2800000, guid: a28a9b27ebe900b45bba20343348a8cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
-        m_Texture: {fileID: 2800000, guid: 868676da1fca5314b9a14da95087a07d, type: 3}
+        m_Texture: {fileID: 2800000, guid: a28a9b27ebe900b45bba20343348a8cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -189,7 +189,7 @@ Material:
     - _Metallic: 0
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
-    - _NormalMapSpace: 0
+    - _NormalMapSpace: 1
     - _NormalScale: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
