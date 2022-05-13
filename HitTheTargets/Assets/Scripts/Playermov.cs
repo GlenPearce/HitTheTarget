@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 //using UnityEngine.PS4;
 
 public class Playermov : MonoBehaviour
@@ -35,6 +36,8 @@ public class Playermov : MonoBehaviour
     public float recoil;
 
     Gun gun;
+    Slider dashSlider;
+
 
     /// <summary>
     /// settings that are used for the various mechanics
@@ -61,6 +64,9 @@ public class Playermov : MonoBehaviour
     void Start()
     {
         //init the variables here
+        dashSlider = GameObject.FindWithTag("HUD").transform.Find("DashSlider").GetComponent<Slider>();
+        dashSlider.maxValue = dashCooldown;
+
         rb = GetComponent<Rigidbody>();
         playerColl = GetComponent<Collider>();
         tempMaxSpeed = maxSpeed;
@@ -175,6 +181,8 @@ public class Playermov : MonoBehaviour
         {
             dashing = false;
         }
+
+        dashSlider.value = dashTimer;
     }
     /// <summary>
     /// lerping the camera to give a smooth more "human" like movement to the camera

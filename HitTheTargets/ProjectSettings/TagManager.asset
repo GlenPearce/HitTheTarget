@@ -19,6 +19,7 @@ TagManager:
   - Reload
   - DryFire
   - gunTip
+  - HUD
   layers:
   - Default
   - TransparentFX
