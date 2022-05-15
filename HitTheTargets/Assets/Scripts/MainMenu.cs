@@ -15,6 +15,9 @@ public class MainMenu : MonoBehaviour
     public GameObject ShiftsUI;
     public GameObject unlocksUI;
     public GameObject HowtoPlayUI;
+    public GameObject leaderboards;
+    public GameObject enterName;
+    public InputField nameField;
 
     [Header("UnlockUI")]
     float hs1, hs2, hs3;
@@ -58,6 +61,11 @@ public class MainMenu : MonoBehaviour
     int wep = 1, level = 1;
     private void Start()
     {
+        if (PlayerPrefs.GetString("PlayerName") == "")
+        {
+            enterName.SetActive(true);
+        }
+
         //Mouse sens default + set to player if in scene
         if (PlayerPrefs.GetFloat("MouseSens") == 0)
         {
@@ -87,17 +95,27 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetInt("SelectedWeapon", wep);
 
             //Initilise trophies and score
+
+            if (PlayerPrefs.GetInt("level1Score") == 0)
+            {
+                PlayerPrefs.SetInt("level1Score", 9999999);
+                PlayerPrefs.SetInt("level2Score", 9999999);
+                PlayerPrefs.SetInt("level3Score", 9999999);
+            }
+
             hs1 = PlayerPrefs.GetInt("level1Score");
             hs2 = PlayerPrefs.GetInt("level2Score");
             hs3 = PlayerPrefs.GetInt("level3Score");
-            highScore1.text = hs1.ToString();
-            highScore2.text = hs2.ToString();
-            highScore3.text = hs3.ToString();
+
+            string format = "00:00:000";
+            highScore1.text = hs1.ToString(format);
+            highScore2.text = hs2.ToString(format);
+            highScore3.text = hs3.ToString(format);
             ShowTrophy();
 
-            goldTxt.text = goldScore.ToString();
-            silverTxt.text = silverScore.ToString();
-            bronzeTxt.text = bronzeScore.ToString();
+            goldTxt.text = goldScore.ToString(format);
+            silverTxt.text = silverScore.ToString(format);
+            bronzeTxt.text = bronzeScore.ToString(format);
 
             //Checks for shift unlocks
             if (PlayerPrefs.GetInt("dash") == 0 & PlayerPrefs.GetInt("grav") == 0 & PlayerPrefs.GetInt("speed") == 0 & PlayerPrefs.GetInt("size") == 0)
@@ -126,10 +144,22 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void ConfirmName()
+    {
+        PlayerPrefs.SetString("PlayerName", nameField.text);
+        enterName.SetActive(false);
+    }
+
     public void Play()
     {
         MainUI.SetActive(false);
         PlayOptions.SetActive(true);
+    }
+
+    public void Leaderboard()
+    {
+        MainUI.SetActive(false);
+        leaderboards.SetActive(true);
     }
 
     public void Options()
@@ -147,26 +177,22 @@ public class MainMenu : MonoBehaviour
         HowtoPlayUI.SetActive(true);
     }
 
-    public void HowtoPlayBack()
+    public void Back()
     {
-        MainUI.SetActive(true);
-        HowtoPlayUI.SetActive(false);
-    }
-
-    public void OptionBack()
-    {
+        
+        
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             MainUI.SetActive(true);
+            HowtoPlayUI.SetActive(false);
+            leaderboards.SetActive(false);
+            OptionUI.SetActive(false);
+        }
+        else
+        {
+            PlayOptions.SetActive(false);
         }
         
-        OptionUI.SetActive(false);
-    }
-
-    public void Back()
-    {
-        MainUI.SetActive(true);
-        PlayOptions.SetActive(false);
     }
 
     public void Quit()
@@ -270,15 +296,15 @@ public class MainMenu : MonoBehaviour
         if (level == 1)
         {
             HSTrophy.SetActive(true);
-            if (hs1 >= goldScore)
+            if (hs1 <= goldScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = gold;
             }
-            else if (hs1 >= silverScore)
+            else if (hs1 <= silverScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = silver;
             }
-            else if (hs1 >= bronzeScore)
+            else if (hs1 <= bronzeScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = bronze;
             }
@@ -293,15 +319,15 @@ public class MainMenu : MonoBehaviour
         if (level == 2)
         {
             HSTrophy.SetActive(true);
-            if (hs2 >= goldScore)
+            if (hs2 <= goldScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = gold;
             }
-            else if (hs2 >= silverScore)
+            else if (hs2 <= silverScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = silver;
             }
-            else if (hs2 >= bronzeScore)
+            else if (hs2 <= bronzeScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = bronze;
             }
@@ -324,15 +350,15 @@ public class MainMenu : MonoBehaviour
         if (level == 3)
         {
             HSTrophy.SetActive(true);
-            if (hs3 >= goldScore)
+            if (hs3 <= goldScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = gold;
             }
-            else if (hs3 >= silverScore)
+            else if (hs3 <= silverScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = silver;
             }
-            else if (hs3 >= bronzeScore)
+            else if (hs3 <= bronzeScore)
             {
                 HSTrophy.GetComponent<Image>().sprite = bronze;
             }

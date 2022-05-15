@@ -86,6 +86,15 @@ public class GameScore : MonoBehaviour
             }
             timer.text = minute.ToString() + ":" + second.ToString() + ":" + milliS.ToString("00");
         }
+
+        ///PLEASEDELETE////////////////////////////
+        //////PLEASEDELETE////////////////////////////
+        //////PLEASEDELETE////////////////////////////
+        //////PLEASEDELETE////////////////////////////
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Finish();
+        }
     }
 
    
@@ -101,30 +110,40 @@ public class GameScore : MonoBehaviour
 
     void Finish()
     {
+        string format = "00:00:000";
+
         //sets the level score and ui
-        levelScoreStr = timer.text = minute.ToString() + second.ToString() + milliS.ToString("00");
-        levelScore = 100000 - int.Parse(levelScoreStr);
-        levelScoreTxt.text = "Score: " + levelScore;
+        //levelScoreStr = timer.text = minute.ToString() + second.ToString() + milliS.ToString("00");
+        //levelScore = 100000 - int.Parse(levelScoreStr);
+        //levelScoreTxt.text = "Score: " + levelScore;
+
+        levelScore = int.Parse(minute.ToString() + second.ToString() + milliS.ToString("00"));
+        levelScoreStr = levelScore.ToString(format);
+
+        levelScoreTxt.text = levelScoreStr;
+
+
+        Debug.Log(levelScoreStr);
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
 
         //Sets high score
-        if (levelScore >= PlayerPrefs.GetInt("level1Score") & currentLevel == 1) 
+        if (levelScore < PlayerPrefs.GetInt("level1Score") & currentLevel == 1) 
         { 
             PlayerPrefs.SetInt("level1Score", levelScore);
-            highscoreTxt.text = levelScore.ToString();
+            highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
         }
-        else if (levelScore >= PlayerPrefs.GetInt("level2Score") & currentLevel == 2)
+        else if (levelScore < PlayerPrefs.GetInt("level2Score") & currentLevel == 2)
         {
             PlayerPrefs.SetInt("level2Score", levelScore);
-            highscoreTxt.text = levelScore.ToString();
+            highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
         }
-        else if (levelScore >= PlayerPrefs.GetInt("level3Score") & currentLevel == 3)
+        else if (levelScore < PlayerPrefs.GetInt("level3Score") & currentLevel == 3)
         {
             PlayerPrefs.SetInt("level3Score", levelScore);
-            highscoreTxt.text = levelScore.ToString();
+            highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
         }
         else
