@@ -92020,6 +92020,7 @@ GameObject:
   - component: {fileID: 8075487007255525726}
   - component: {fileID: 6197258126091278773}
   - component: {fileID: 4360248814160166207}
+  - component: {fileID: 3970757977734271106}
   m_Layer: 0
   m_Name: machine
   m_TagString: Untagged
@@ -92027,6 +92028,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &3970757977734271106
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970757977734271105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1067930958509661013, guid: b40dd3b749c547242af0de544f87ce3c, type: 3}
 --- !u!1 &4028585985216454314
 GameObject:
   m_ObjectHideFlags: 0
@@ -93541,6 +93556,7 @@ GameObject:
   - component: {fileID: 1981274548594116007}
   - component: {fileID: 1805600098606139093}
   - component: {fileID: 309943789615751783}
+  - component: {fileID: 7333596775404360765}
   m_Layer: 0
   m_Name: poipe
   m_TagString: Untagged
@@ -93548,6 +93564,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7333596775404360765
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333596775404360764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7951296075490133497, guid: b40dd3b749c547242af0de544f87ce3c, type: 3}
 --- !u!4 &7333804621252297788
 Transform:
   m_ObjectHideFlags: 0
@@ -93848,6 +93878,7 @@ GameObject:
   - component: {fileID: 6531924344081289866}
   - component: {fileID: 4517414769515281897}
   - component: {fileID: 4531912229977622492}
+  - component: {fileID: 7953606481789995360}
   m_Layer: 0
   m_Name: base
   m_TagString: Untagged
@@ -93855,6 +93886,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7953606481789995360
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953606481789995359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1388485733357891733, guid: b40dd3b749c547242af0de544f87ce3c, type: 3}
 --- !u!1 &7966085846307495558
 GameObject:
   m_ObjectHideFlags: 0
