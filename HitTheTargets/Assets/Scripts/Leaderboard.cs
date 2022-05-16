@@ -19,10 +19,13 @@ public class Leaderboard : MonoBehaviour
     //UI
     public Text selectedLevel;
     int currentLevel;
+    string format;
 
     private void Start()
     {
         memberID = PlayerPrefs.GetString("PlayerName");
+
+        format = "00:00:000";
 
         LootLockerSDKManager.StartGuestSession("Player", (response) =>
         {
@@ -50,7 +53,7 @@ public class Leaderboard : MonoBehaviour
                 LootLockerLeaderboardMember[] scores = response.items;
                 for (int i = 0; i < scores.Length; i++)
                 {
-                    entries[i].text = (scores[i].rank + ".   " + scores[i].score);
+                    entries[i].text = (scores[i].member_id + "   " + scores[i].score.ToString(format));
                 }
 
                 if (scores.Length < maxScores)
@@ -71,15 +74,31 @@ public class Leaderboard : MonoBehaviour
 
     public void SubmitScore(int score)
     {
+        //If level 1, 2 ,or 3
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            ID = 3103;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            ID = 3104;
+        }
+        else
+        {
+            ID = 3105;
+        }
+
         LootLockerSDKManager.SubmitScore(memberID, score, ID, (response) =>
         {
             if (response.success)
             {
                 Debug.Log("Success");
+
             }
             else
             {
                 Debug.Log("Failed");
+
             }
         });
     }

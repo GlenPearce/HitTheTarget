@@ -21,6 +21,7 @@ public class GameScore : MonoBehaviour
     public CanvasGroup finishCanGroup, killFade;
     CanvasGroup hudCanGrp;
     public GameObject finishCan, HudCan, newHigh;
+    public Leaderboard leaderboard;
 
 
 
@@ -133,18 +134,21 @@ public class GameScore : MonoBehaviour
             PlayerPrefs.SetInt("level1Score", levelScore);
             highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
+            leaderboard.SubmitScore(levelScore);
         }
         else if (levelScore < PlayerPrefs.GetInt("level2Score") & currentLevel == 2)
         {
             PlayerPrefs.SetInt("level2Score", levelScore);
             highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
+            leaderboard.SubmitScore(levelScore);
         }
         else if (levelScore < PlayerPrefs.GetInt("level3Score") & currentLevel == 3)
         {
             PlayerPrefs.SetInt("level3Score", levelScore);
             highscoreTxt.text = levelScore.ToString(format);
             newHigh.SetActive(true);
+            leaderboard.SubmitScore(levelScore);
         }
         else
         {

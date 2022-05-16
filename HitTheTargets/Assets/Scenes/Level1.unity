@@ -15059,6 +15059,52 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
+--- !u!1 &545356978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545356980}
+  - component: {fileID: 545356979}
+  m_Layer: 0
+  m_Name: LeaderboardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &545356979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545356978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeec03fe6ae0424787d6976b32b6cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  entries: []
+  selectedLevel: {fileID: 0}
+--- !u!4 &545356980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545356978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 863.7573, y: 556.5815, z: -15.226332}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1398360610}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545849194
 GameObject:
   m_ObjectHideFlags: 0
@@ -15125,6 +15171,9 @@ MonoBehaviour:
   ShiftsUI: {fileID: 0}
   unlocksUI: {fileID: 0}
   HowtoPlayUI: {fileID: 0}
+  leaderboards: {fileID: 0}
+  enterName: {fileID: 0}
+  nameField: {fileID: 0}
   gold: {fileID: 0}
   bronze: {fileID: 0}
   silver: {fileID: 0}
@@ -42856,6 +42905,7 @@ Transform:
   m_LocalPosition: {x: 0.22274953, y: 0.5624362, z: 1.1546766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 545356980}
   - {fileID: 1626959500}
   - {fileID: 1808514846737273711}
   m_Father: {fileID: 0}
@@ -48994,6 +49044,7 @@ MonoBehaviour:
   finishCan: {fileID: 813280238}
   HudCan: {fileID: 915467394}
   newHigh: {fileID: 1176729067}
+  leaderboard: {fileID: 545356979}
 --- !u!4 &1626959500
 Transform:
   m_ObjectHideFlags: 0
@@ -49008,7 +49059,7 @@ Transform:
   - {fileID: 2141741945}
   - {fileID: 1758956218}
   m_Father: {fileID: 1398360610}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1626959501
 MonoBehaviour:
@@ -65156,7 +65207,7 @@ Transform:
   - {fileID: 813280239}
   - {fileID: 545849195}
   m_Father: {fileID: 1398360610}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1822682212695527956
 Transform:

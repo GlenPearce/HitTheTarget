@@ -1147,7 +1147,7 @@ GameObject:
   - component: {fileID: 115954928}
   - component: {fileID: 115954927}
   m_Layer: 5
-  m_Name: PlayBtn (1)
+  m_Name: ConfirmNameBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1219,7 +1219,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 506209864}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: ConfirmName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4012,7 +4012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &364232989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5281,8 +5281,8 @@ MonoBehaviour:
   unlocksUI: {fileID: 445518795}
   HowtoPlayUI: {fileID: 2122992402}
   leaderboards: {fileID: 364232988}
-  enterName: {fileID: 0}
-  nameField: {fileID: 0}
+  enterName: {fileID: 1444455575}
+  nameField: {fileID: 2145442820}
   gold: {fileID: 21300000, guid: 24e50397efaa0b74aad2ae3e98f90a3f, type: 3}
   bronze: {fileID: 21300000, guid: cbbc9d6e79b4fe24c8220ebaf619fe12, type: 3}
   silver: {fileID: 21300000, guid: fd402b84422c1144bbe953b7040231d8, type: 3}
