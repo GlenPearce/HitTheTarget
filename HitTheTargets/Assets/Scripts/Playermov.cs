@@ -113,7 +113,7 @@ public class Playermov : MonoBehaviour
                 vertical = movementInput.y;
                 movementVec = new Vector3(horizontal, 0.0f, vertical);
 
-                rb.AddRelativeForce(movementVec * speed * inAirSpeed);
+                rb.AddRelativeForce(movementVec * speed * inAirSpeed * Time.deltaTime * 100);
 
                 //speed limit ignores limits on Y axis
                 float tempY = rb.velocity.y;
@@ -225,6 +225,7 @@ public class Playermov : MonoBehaviour
     public void MouseSensUpdate()
     {
         mouseSens = PlayerPrefs.GetFloat("MouseSens");
+        
     }
     public void cameraMov(InputAction.CallbackContext context)
     {

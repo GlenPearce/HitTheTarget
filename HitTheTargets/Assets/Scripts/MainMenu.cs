@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
         //Mouse sens default + set to player if in scene
         if (PlayerPrefs.GetFloat("MouseSens") == 0)
         {
-            PlayerPrefs.SetFloat("MouseSens", 1);
+            PlayerPrefs.SetFloat("MouseSens", 0.5f);
         }
         mouseSens.value = PlayerPrefs.GetFloat("MouseSens");
 
@@ -186,7 +186,7 @@ public class MainMenu : MonoBehaviour
             MainUI.SetActive(true);
             HowtoPlayUI.SetActive(false);
             leaderboards.SetActive(false);
-            
+            OptionUI.SetActive(false);
             PlayOptions.SetActive(false);
         }
         else
@@ -242,12 +242,12 @@ public class MainMenu : MonoBehaviour
         j += 1;
         wep = j;
 
-        if (wep == 2 & hs1 < silverScore)
+        if (wep == 2 & hs1 > silverScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked M4!";
         }
-        else if (wep == 3 & hs2 < goldScore)
+        else if (wep == 3 & hs2 > goldScore)
         {
             startBtn.SetActive(false);
             lockReasonWep.text = "Haven't unlocked Railgun!";
@@ -337,7 +337,7 @@ public class MainMenu : MonoBehaviour
                 HSTrophy.SetActive(false);
             }
 
-            if (hs1 == 0)
+            if (hs1 == 9999999)
             {
                 startBtn.SetActive(false);
                 lockReason.text = "Have not unlocked level 2!";
@@ -368,7 +368,7 @@ public class MainMenu : MonoBehaviour
                 HSTrophy.SetActive(false);
             }
 
-            if (hs2 == 0)
+            if (hs2 == 9999999)
             {
                 startBtn.SetActive(false);
                 lockReason.text = "Have not unlocked level 3!";
