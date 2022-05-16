@@ -4593,7 +4593,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 628852818}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OptionBack
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6297,7 +6297,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17408,7 +17408,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 374, y: 231}
-  m_SizeDelta: {x: 1920, y: 1080.2411}
+  m_SizeDelta: {x: 2093, y: 1080.2411}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714623098
 MonoBehaviour:
@@ -20328,7 +20328,7 @@ Transform:
   - {fileID: 1468210170}
   - {fileID: 1047958408}
   m_Father: {fileID: 1653641035}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &847992375
 GameObject:
@@ -24078,7 +24078,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -36467,15 +36467,16 @@ Transform:
   - {fileID: 6020419149287121080}
   - {fileID: 1961341801}
   - {fileID: 4345669191511382234}
-  - {fileID: 203227157}
   - {fileID: 3875092981151459158}
+  - {fileID: 203227157}
+  - {fileID: 6578366061712396836}
   - {fileID: 141256492}
   - {fileID: 146783457}
   - {fileID: 1528419068}
   - {fileID: 1326075642}
   - {fileID: 2050593058}
   - {fileID: 380560149}
-  - {fileID: 6578366061712396836}
+  - {fileID: 543450652572535546}
   - {fileID: 278445649}
   - {fileID: 1320593587}
   - {fileID: 1008674415}
@@ -36484,7 +36485,6 @@ Transform:
   - {fileID: 535237982}
   - {fileID: 554963467}
   - {fileID: 1250207931}
-  - {fileID: 543450652572535546}
   - {fileID: 6499524}
   - {fileID: 786457101}
   - {fileID: 405767783}
@@ -38512,8 +38512,8 @@ Transform:
   m_LocalPosition: {x: -0.7693766, y: -2.41757, z: 0.041337848}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
-  - {fileID: 2011230051}
   - {fileID: 828352776}
+  - {fileID: 2011230051}
   m_Father: {fileID: 1165930255}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50019,7 +50019,7 @@ Transform:
   m_LocalScale: {x: 53.727783, y: 295.54318, z: 8.131037}
   m_Children: []
   m_Father: {fileID: 1553062353}
-  m_RootOrder: 26
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!4 &543450653071460162
 Transform:
@@ -51288,7 +51288,7 @@ Transform:
   - {fileID: 1840665212}
   - {fileID: 295661994}
   m_Father: {fileID: 1553062353}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3902238704562368489
 MeshRenderer:
@@ -52177,7 +52177,7 @@ Transform:
   m_Children:
   - {fileID: 90772506185262878}
   m_Father: {fileID: 1553062353}
-  m_RootOrder: 17
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &6679020042172708054
 GameObject:

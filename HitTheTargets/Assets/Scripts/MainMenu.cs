@@ -186,11 +186,12 @@ public class MainMenu : MonoBehaviour
             MainUI.SetActive(true);
             HowtoPlayUI.SetActive(false);
             leaderboards.SetActive(false);
-            OptionUI.SetActive(false);
+            
+            PlayOptions.SetActive(false);
         }
         else
         {
-            PlayOptions.SetActive(false);
+            OptionUI.SetActive(false);
         }
         
     }

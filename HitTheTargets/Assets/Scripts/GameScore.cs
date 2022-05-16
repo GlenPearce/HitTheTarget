@@ -113,17 +113,13 @@ public class GameScore : MonoBehaviour
     {
         string format = "00:00:000";
 
-        //sets the level score and ui
-        //levelScoreStr = timer.text = minute.ToString() + second.ToString() + milliS.ToString("00");
-        //levelScore = 100000 - int.Parse(levelScoreStr);
-        //levelScoreTxt.text = "Score: " + levelScore;
 
-        levelScore = int.Parse(minute.ToString() + second.ToString() + milliS.ToString("00"));
+        levelScore = int.Parse(minute.ToString("00") + second.ToString("00") + milliS.ToString("00"));
         levelScoreStr = levelScore.ToString(format);
 
         levelScoreTxt.text = levelScoreStr;
 
-
+        Debug.Log(levelScore);
         Debug.Log(levelScoreStr);
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
