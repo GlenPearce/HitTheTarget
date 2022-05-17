@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
     {
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
-        playerMov = GetComponent<Playermov>();
+        playerMov.GetComponent<Playermov>();
         pauseMenu = GameObject.FindWithTag("PauseMenu").GetComponent<PauseMenu>();
 
         //Change gun specs depending on active gun

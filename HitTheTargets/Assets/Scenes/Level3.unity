@@ -33867,7 +33867,7 @@ GameObject:
   - component: {fileID: 785676873}
   m_Layer: 0
   m_Name: PauseMenu
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65134,6 +65134,7 @@ Transform:
   - {fileID: 543450652441078373}
   - {fileID: 543450653704156012}
   - {fileID: 922932287616348086}
+  - {fileID: 1868597865}
   - {fileID: 939012741}
   - {fileID: 127656623}
   - {fileID: 42113109}
@@ -65147,7 +65148,6 @@ Transform:
   - {fileID: 1279253303}
   - {fileID: 2062232296}
   - {fileID: 709145399}
-  - {fileID: 1868597865}
   - {fileID: 308005739}
   - {fileID: 1431914606}
   - {fileID: 1745958102}
@@ -78002,7 +78002,7 @@ Transform:
   - {fileID: 1457334457}
   - {fileID: 233320720}
   m_Father: {fileID: 1544948300}
-  m_RootOrder: 29
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869421743
 GameObject:
