@@ -15174,6 +15174,7 @@ MonoBehaviour:
   leaderboards: {fileID: 0}
   enterName: {fileID: 0}
   nameField: {fileID: 0}
+  confirmName: {fileID: 0}
   gold: {fileID: 0}
   bronze: {fileID: 0}
   silver: {fileID: 0}
@@ -55413,9 +55414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 545849194}
+      - m_Target: {fileID: 545849196}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Restart
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
