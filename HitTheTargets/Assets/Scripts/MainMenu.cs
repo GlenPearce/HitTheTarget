@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     public GameObject leaderboards;
     public GameObject enterName;
     public InputField nameField;
+    public Button confirmName;
 
     [Header("UnlockUI")]
     float hs1, hs2, hs3;
@@ -61,6 +62,9 @@ public class MainMenu : MonoBehaviour
     int wep = 1, level = 1;
     private void Start()
     {
+        //Set name limit
+        nameField.characterLimit = 12;
+
         if (PlayerPrefs.GetString("PlayerName") == "")
         {
             enterName.SetActive(true);
@@ -140,14 +144,26 @@ public class MainMenu : MonoBehaviour
             }
 
         }
-
-
     }
 
     public void ConfirmName()
     {
         PlayerPrefs.SetString("PlayerName", nameField.text);
         enterName.SetActive(false);
+    }
+
+    public void NameEnter()
+    {
+        if (nameField.text == "")
+        {
+            confirmName.interactable = false;
+            confirmName.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else
+        {
+            confirmName.interactable = true;
+            confirmName.transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 
     public void Play()
