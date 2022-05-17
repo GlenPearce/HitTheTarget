@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
     private bool shooting;
     private LineRenderer shotLine;
     public Material lineMat;
-    Playermov playerMov;
+    public Playermov playerMov;
 
     GameObject[] ammoCountTxt;
     public Slider ammoSlide;
@@ -43,7 +43,6 @@ public class Gun : MonoBehaviour
     {
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
-        playerMov.GetComponent<Playermov>();
         pauseMenu = GameObject.FindWithTag("PauseMenu").GetComponent<PauseMenu>();
 
         //Change gun specs depending on active gun
@@ -101,7 +100,7 @@ public class Gun : MonoBehaviour
         //timer for firerate
         nextFire += Time.deltaTime;
         //shoot is held, and can fire
-        if (shooting && nextFire > fireRate && currentAmmo > 0 & pauseMenu.GamePaused == false & playerMov.moveEnable == true)
+        if (shooting && nextFire > fireRate && currentAmmo > 0 & pauseMenu.escEnable == true & playerMov.moveEnable == true)
         {
             Shoot();
             fire.Play();

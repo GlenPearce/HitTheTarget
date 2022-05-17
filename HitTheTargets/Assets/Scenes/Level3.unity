@@ -43752,6 +43752,7 @@ MonoBehaviour:
   railgun: {fileID: 1599884094}
   camera: {fileID: 1651061681}
   lineMat: {fileID: 2100000, guid: eb544066033e1ee46970104d477ca34f, type: 2}
+  playerMov: {fileID: 1010843323}
   ammoSlide: {fileID: 1715505832}
   m_animator: {fileID: 1778417722}
 --- !u!136 &1010843330
