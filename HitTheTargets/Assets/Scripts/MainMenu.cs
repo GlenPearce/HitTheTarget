@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     public GameObject enterName;
     public InputField nameField;
     public Button confirmName;
+    public GameObject resetSavePanel;
 
     [Header("UnlockUI")]
     float hs1, hs2, hs3;
@@ -62,8 +63,12 @@ public class MainMenu : MonoBehaviour
     int wep = 1, level = 1;
     private void Start()
     {
-        //Set name limit
-        nameField.characterLimit = 12;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            //Set name limit
+            nameField.characterLimit = 12;
+        }
+        
 
         if (PlayerPrefs.GetString("PlayerName") == "")
         {
@@ -439,4 +444,16 @@ public class MainMenu : MonoBehaviour
             player.MouseSensUpdate();
         }
     }
+
+    public void ResetSavePanel(bool open)
+    {
+        resetSavePanel.SetActive(open);
+    }
+
+    public void FinalResetSave()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(0);
+    }
+    
 }

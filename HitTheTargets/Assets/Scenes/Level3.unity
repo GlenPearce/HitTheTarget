@@ -2014,7 +2014,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 100}
   m_Children: []
   m_Father: {fileID: 1544948300}
-  m_RootOrder: 38
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!65 &43904057
 BoxCollider:
@@ -33909,6 +33909,7 @@ MonoBehaviour:
   enterName: {fileID: 0}
   nameField: {fileID: 0}
   confirmName: {fileID: 0}
+  resetSavePanel: {fileID: 0}
   gold: {fileID: 0}
   bronze: {fileID: 0}
   silver: {fileID: 0}
@@ -43471,7 +43472,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 95b7288b8e6fcce4c99891d8622c1c3f, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -65146,16 +65147,16 @@ Transform:
   - {fileID: 1279253303}
   - {fileID: 2062232296}
   - {fileID: 709145399}
+  - {fileID: 1868597865}
   - {fileID: 308005739}
   - {fileID: 1431914606}
   - {fileID: 1745958102}
   - {fileID: 866719054}
   - {fileID: 2127958319}
-  - {fileID: 1868597865}
   - {fileID: 1964442495}
+  - {fileID: 43904056}
   - {fileID: 578126199}
   - {fileID: 1565819662}
-  - {fileID: 43904056}
   - {fileID: 842934614}
   m_Father: {fileID: 1518947453}
   m_RootOrder: 7
@@ -78001,7 +78002,7 @@ Transform:
   - {fileID: 1457334457}
   - {fileID: 233320720}
   m_Father: {fileID: 1544948300}
-  m_RootOrder: 34
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869421743
 GameObject:

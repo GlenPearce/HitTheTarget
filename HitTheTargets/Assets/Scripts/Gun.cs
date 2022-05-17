@@ -30,6 +30,8 @@ public class Gun : MonoBehaviour
     GameObject[] ammoCountTxt;
     public Slider ammoSlide;
 
+    PauseMenu pauseMenu;
+
     public Animator m_animator;
 
     [Header("Audio")]
@@ -42,7 +44,7 @@ public class Gun : MonoBehaviour
         //initalise things here
         shotLine = GetComponent<LineRenderer>();
         playerMov = GetComponent<Playermov>();
-
+        pauseMenu = GameObject.FindWithTag("PauseMenu").GetComponent<PauseMenu>();
 
         //Change gun specs depending on active gun
         selectedWeapon = PlayerPrefs.GetInt("SelectedWeapon");
@@ -71,7 +73,7 @@ public class Gun : MonoBehaviour
         {
             railgun.SetActive(true);
             fireRate = 2;
-            gunRange = 400;
+            gunRange = 20;
             lineDuration = 1;
             ammoMax = 4;
             lineMat.SetColor("_EmissiveColor", Color.blue * 1000);
@@ -99,7 +101,7 @@ public class Gun : MonoBehaviour
         //timer for firerate
         nextFire += Time.deltaTime;
         //shoot is held, and can fire
-        if (shooting && nextFire > fireRate && currentAmmo > 0)
+        if (shooting && nextFire > fireRate && currentAmmo > 0 & pauseMenu.GamePaused == false & playerMov.moveEnable == true)
         {
             Shoot();
             fire.Play();

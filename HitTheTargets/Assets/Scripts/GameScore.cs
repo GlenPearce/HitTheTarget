@@ -46,11 +46,12 @@ public class GameScore : MonoBehaviour
             if (i == 2)
             {
                 startCountdownTxt.text = "GO!";
-                pausemenu.escEnable = true;
+                
                 pausemenu.escEnable = true;
             }
             if (i == 1)
             {
+                GameObject.FindWithTag("Player").transform.rotation = Quaternion.Euler(0, 0, 0);
                 startCountdownTxt.text = "";
                 stopTime = false;
                 playermov.moveEnable = true;
@@ -88,14 +89,6 @@ public class GameScore : MonoBehaviour
             timer.text = minute.ToString() + ":" + second.ToString() + ":" + milliS.ToString("00");
         }
 
-        ///PLEASEDELETE////////////////////////////
-        //////PLEASEDELETE////////////////////////////
-        //////PLEASEDELETE////////////////////////////
-        //////PLEASEDELETE////////////////////////////
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Finish();
-        }
     }
 
    
@@ -148,7 +141,7 @@ public class GameScore : MonoBehaviour
         }
         else
         {
-            highscoreTxt.text = PlayerPrefs.GetInt("level" + currentLevel + "Score").ToString();
+            highscoreTxt.text = PlayerPrefs.GetInt("level" + currentLevel + "Score").ToString(format);
         }
 
 

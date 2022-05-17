@@ -15464,6 +15464,8 @@ MonoBehaviour:
   leaderboards: {fileID: 0}
   enterName: {fileID: 0}
   nameField: {fileID: 0}
+  confirmName: {fileID: 0}
+  resetSavePanel: {fileID: 0}
   gold: {fileID: 0}
   bronze: {fileID: 0}
   silver: {fileID: 0}
@@ -41190,7 +41192,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 95b7288b8e6fcce4c99891d8622c1c3f, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

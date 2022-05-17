@@ -20,6 +20,7 @@ TagManager:
   - DryFire
   - gunTip
   - HUD
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
