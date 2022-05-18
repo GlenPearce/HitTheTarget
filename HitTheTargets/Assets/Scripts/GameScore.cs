@@ -86,7 +86,7 @@ public class GameScore : MonoBehaviour
                     stopTime = true;
                 }
             }
-            timer.text = minute.ToString() + ":" + second.ToString() + ":" + milliS.ToString("00");
+            timer.text = minute.ToString("00") + ":" + second.ToString("00") + ":" + milliS.ToString("000");
         }
 
     }
@@ -107,7 +107,7 @@ public class GameScore : MonoBehaviour
         string format = "00:00:000";
 
 
-        levelScore = int.Parse(minute.ToString("00") + second.ToString("00") + milliS.ToString("00"));
+        levelScore = int.Parse(minute.ToString("00") + second.ToString("00") + milliS.ToString("000"));
         levelScoreStr = levelScore.ToString(format);
 
         levelScoreTxt.text = levelScoreStr;
