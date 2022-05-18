@@ -57790,7 +57790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88292,18 +88292,18 @@ Transform:
   - {fileID: 1772266466}
   - {fileID: 390185326}
   - {fileID: 1154728752}
+  - {fileID: 1657435440}
   - {fileID: 1559302333}
   - {fileID: 2123770873}
+  - {fileID: 1737083803}
   - {fileID: 1472915969}
   - {fileID: 415680980}
-  - {fileID: 1657435440}
   - {fileID: 1875704348}
-  - {fileID: 1737083803}
-  - {fileID: 1327738013}
-  - {fileID: 1789273838}
   - {fileID: 1585543039}
   - {fileID: 1024937394}
   - {fileID: 226137620}
+  - {fileID: 1327738013}
+  - {fileID: 1789273838}
   m_Father: {fileID: 1518947453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
