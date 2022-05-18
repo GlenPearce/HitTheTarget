@@ -14,24 +14,31 @@ public class GameScore : MonoBehaviour
     bool stopTime = false;
     string levelScoreStr;
     Rigidbody playerRB;
+    Gun gun;
 
     public PauseMenu pausemenu;
-    public Text targetCount, timer, levelScoreTxt, startCountdownTxt, highscoreTxt;
+    public Text targetCount, timer, levelScoreTxt, startCountdownTxt, highscoreTxt, hitPercentTxt;
     public Playermov playermov;
     public CanvasGroup finishCanGroup, killFade;
     CanvasGroup hudCanGrp;
     public GameObject finishCan, HudCan, newHigh;
     public Leaderboard leaderboard;
+    int totalTargets;
+
 
 
 
     void Start()
     {
+        gun = GameObject.FindWithTag("Player").GetComponent<Gun>();
         hudCanGrp = HudCan.GetComponent<CanvasGroup>();
         stopTime = true;
         playermov.moveEnable = false;
+
         targetAmnt = GameObject.FindGameObjectsWithTag("Target").Length;
+        totalTargets = targetAmnt;
         targetCount.text = "Targets to get: " + targetAmnt;
+
         StartCoroutine("Countdown");
         playerRB = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
         playerRB.isKinematic = true;
@@ -104,6 +111,15 @@ public class GameScore : MonoBehaviour
 
     void Finish()
     {
+        //Hit Percentage Calculation
+        string formatHit = "00.00";
+        float hitPercent = (float)totalTargets / (float)gun.shotsTaken * 100;
+        hitPercentTxt.text = "Your hit rate was " + hitPercent + "%!";
+        Debug.Log(hitPercent + "% Hit");
+        Debug.Log(totalTargets + " TargetsTotal");
+        Debug.Log(gun.shotsTaken + " Shots");
+
+        //Time/Score Calculation
         string format = "00:00:000";
 
 
@@ -111,9 +127,6 @@ public class GameScore : MonoBehaviour
         levelScoreStr = levelScore.ToString(format);
 
         levelScoreTxt.text = levelScoreStr;
-
-        Debug.Log(levelScore);
-        Debug.Log(levelScoreStr);
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
 

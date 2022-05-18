@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
     public GameObject m4;
     public GameObject railgun;
     int selectedWeapon;
+    public int shotsTaken;
 
     [Header("Initalise variables")]
     public Camera camera;
@@ -149,6 +150,9 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        //adds to int that takes into account percentage hit
+        shotsTaken++;
+
         //ray start at camera
         Vector3 origin = camera.transform.position;
         RaycastHit hit;
