@@ -169,11 +169,14 @@ public class Gun : MonoBehaviour
         //add the recoil to the player mov script
         playerMov.recoil += Random.Range(1f, 2f);
 
+        //Gets the audio trigger layer and masks it out
+        LayerMask mask = LayerMask.GetMask("AudioTrig");
+
         //if Shooting Railgun
         if (selectedWeapon == 3)
         {
             RaycastHit[] hits;
-            hits = Physics.RaycastAll(origin, camera.transform.forward, gunRange);
+            hits = Physics.RaycastAll(origin, camera.transform.forward, gunRange, ~mask);
 
             foreach (RaycastHit hitRG in hits)
             {
@@ -184,8 +187,8 @@ public class Gun : MonoBehaviour
                 
             }
         }
-        //if hit with pistol or M4
-        else if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange))
+        //if hit with pistol or M4 + mask out layer 6 which is audio trigger
+        else if (Physics.Raycast(origin, camera.transform.forward, out hit, gunRange, ~mask))
         {
             shotLine.SetPosition(1, hit.point);
 

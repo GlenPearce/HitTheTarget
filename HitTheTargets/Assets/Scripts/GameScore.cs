@@ -114,10 +114,8 @@ public class GameScore : MonoBehaviour
         //Hit Percentage Calculation
         string formatHit = "00.00";
         float hitPercent = (float)totalTargets / (float)gun.shotsTaken * 100;
-        hitPercentTxt.text = "Your hit rate was " + hitPercent + "%!";
-        Debug.Log(hitPercent + "% Hit");
-        Debug.Log(totalTargets + " TargetsTotal");
-        Debug.Log(gun.shotsTaken + " Shots");
+        hitPercentTxt.text = "Your hit rate was " + hitPercent.ToString(formatHit) + "%!";
+
 
         //Time/Score Calculation
         string format = "00:00:000";
