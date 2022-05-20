@@ -11116,7 +11116,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: These are items that are scattered around the different maps and by collecting
-    them modifiers will then given access to the player.
+    them modifiers will then be given access to the player.
 --- !u!222 &1012263560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21533,8 +21533,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'With the games by using different weapons with each of the weapons having
-    there own advantages and differnt ways of firing.
+  m_Text: 'Each of the weapons having there own advantages and different ways of
+    firing.
 
 
     Pistol:'
