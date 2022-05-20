@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1 &16246222
@@ -427,7 +427,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: f19d59161cc0bdb45ae6c5eeec4d2725, type: 2}
     - target: {fileID: 919132149155446097, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Name
       value: counterdesk (2)
@@ -1856,7 +1856,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (2)
@@ -3632,7 +3632,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: f19d59161cc0bdb45ae6c5eeec4d2725, type: 2}
     - target: {fileID: 919132149155446097, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Name
       value: counterdesk (1)
@@ -5863,7 +5863,7 @@ PrefabInstance:
     - target: {fileID: -678588488315902003, guid: d3891193ff1c979488452c629cf7084f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7792230bd8765d747a39399e0aa43d8c, type: 2}
+      objectReference: {fileID: 2100000, guid: 1de2ed88b638a6a4c998d17c3e4b9cca, type: 2}
     - target: {fileID: 919132149155446097, guid: d3891193ff1c979488452c629cf7084f, type: 3}
       propertyPath: m_Name
       value: deskL
@@ -12257,7 +12257,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (11)
@@ -13802,6 +13802,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -178.561
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c84f84bca9446674aa511d6f8bc545d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b00cb0bbd0702c247832302169b10ff6, type: 2}
     - target: {fileID: 919132149155446097, guid: c84f84bca9446674aa511d6f8bc545d0, type: 3}
       propertyPath: m_Name
       value: vendingmachine (1)
@@ -15028,7 +15032,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (6)
@@ -18170,7 +18174,7 @@ PrefabInstance:
     - target: {fileID: -678588488315902003, guid: d3891193ff1c979488452c629cf7084f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7792230bd8765d747a39399e0aa43d8c, type: 2}
+      objectReference: {fileID: 2100000, guid: 1de2ed88b638a6a4c998d17c3e4b9cca, type: 2}
     - target: {fileID: 919132149155446097, guid: d3891193ff1c979488452c629cf7084f, type: 3}
       propertyPath: m_Name
       value: deskL (1)
@@ -22747,7 +22751,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!4 &805077711 stripped
@@ -25068,7 +25072,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1 &868107102
@@ -25956,7 +25960,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: f19d59161cc0bdb45ae6c5eeec4d2725, type: 2}
     - target: {fileID: 919132149155446097, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Name
       value: counterdesk (3)
@@ -30175,7 +30179,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: f19d59161cc0bdb45ae6c5eeec4d2725, type: 2}
     - target: {fileID: 919132149155446097, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Name
       value: counterdesk
@@ -32427,7 +32431,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (4)
@@ -33720,7 +33724,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1001 &1109650747
@@ -33994,7 +33998,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (3)
@@ -37727,7 +37731,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1001 &1214703707
@@ -38492,7 +38496,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: f19d59161cc0bdb45ae6c5eeec4d2725, type: 2}
     - target: {fileID: 919132149155446097, guid: 410e8141d4b83bb4eb2474ee8e46f8b0, type: 3}
       propertyPath: m_Name
       value: counterdesk (4)
@@ -41035,7 +41039,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (1)
@@ -42903,7 +42907,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1 &1393969441
@@ -43700,7 +43704,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (8)
@@ -43992,6 +43996,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -178.561
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c84f84bca9446674aa511d6f8bc545d0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b00cb0bbd0702c247832302169b10ff6, type: 2}
     - target: {fileID: 919132149155446097, guid: c84f84bca9446674aa511d6f8bc545d0, type: 3}
       propertyPath: m_Name
       value: vendingmachine
@@ -50048,7 +50056,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (7)
@@ -54953,7 +54961,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4e97fa09e910bcb4d8f5bf15307a711e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (9)
@@ -55321,7 +55329,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair (5)
@@ -56606,7 +56614,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: edc93e1a8dcc3d24d9d102de9e18f58b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: edc93e1a8dcc3d24d9d102de9e18f58b, type: 3}
       propertyPath: m_Name
       value: boardroomtable
@@ -59527,7 +59535,7 @@ PrefabInstance:
     - target: {fileID: 9077926073120308842, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cebf56594f5a1cb458156b33499ae014, type: 2}
+      objectReference: {fileID: 2100000, guid: fdcd669c5d0263c4d9646028f84a6487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aef69c78968e70429d41e168c736c76, type: 3}
 --- !u!1 &1966544056
@@ -63395,7 +63403,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9f3fe7583694324b9f435d1d94a2c02, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f14b59f27edcc042bf41d7712cbf695, type: 2}
     - target: {fileID: 919132149155446097, guid: 09857ba51ff29a140be695f97f13f1f3, type: 3}
       propertyPath: m_Name
       value: boardroomchair
