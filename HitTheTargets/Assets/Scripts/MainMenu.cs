@@ -87,11 +87,19 @@ public class MainMenu : MonoBehaviour
         {
             musicSlide.value = PlayerPrefs.GetFloat("MusicVol");
             musicVol.SetFloat("MusicVol", musicSlide.value);
+            if (musicSlide.value == -20)
+            {
+                musicVol.SetFloat("MusicVol", -80);
+            }
         }
         if (PlayerPrefs.GetFloat("FxVol") != 0)
         {
             fxSlide.value = PlayerPrefs.GetFloat("FxVol");
             fxVol.SetFloat("FxVol", fxSlide.value);
+            if (fxSlide.value == -20)
+            {
+                fxVol.SetFloat("FxVol", -80);
+            }
         }
 
         //Graphics quality default
@@ -423,11 +431,19 @@ public class MainMenu : MonoBehaviour
     public void FxSlider()
     {
         fxVol.SetFloat("FxVol", fxSlide.value);
+        if (fxSlide.value == -20)
+        {
+            fxVol.SetFloat("FxVol", -80);
+        }
         PlayerPrefs.SetFloat("FxVol", fxSlide.value);
     }
     public void MusicSlider()
     {
         musicVol.SetFloat("MusicVol", musicSlide.value);
+        if (musicSlide.value == -20)
+        {
+            musicVol.SetFloat("MusicVol", -80);
+        }
         PlayerPrefs.SetFloat("MusicVol", musicSlide.value);
     }
     public void GQuality(int i)
